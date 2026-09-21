@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <style>
+      #addForm {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>6
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>University</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h2>All Universities</h2>
+        <button class="btn btn-primary mb-3" onclick="toggleForm()">
+          + Add University
+        </button>
+
+        <!-- Add University Form -->
+        <form
+          action="/admin/add-university"
+          method="POST"
+          id="addForm"
+          enctype="multipart/form-data"
+          class="border p-4 mb-4"
+        >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Name</label>
+              <input type="text" name="name" class="form-control" required />
+            </div>
+            <div class="form-group col-md-3">
+              <label>Rating</label>
+              <input
+                type="number"
+                step="0.1"
+                name="rating"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-md-3">
+              <label>Enrolled</label>
+              <input type="number" name="enrolled" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>University Image</label>
+              <input
+                type="file"
+                name="image"
+                class="form-control-file"
+                accept="image/*"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" name="location" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Established Year</label>
+            <input type="number" name="stablishedYear" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Timing Content</label>
+            <textarea name="timingContent" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Brief Content</label>
+            <textarea name="briefContent" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>About Content</label>
+            <textarea name="aboutContent" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Meta Title</label>
+            <input type="text" name="metaTitle" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Meta Description</label>
+            <input type="text" name="metaDescription" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Meta Keyword</label>
+            <input type="text" name="metaKeyword" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-success">Save University</button>
+        </form>
+
+        <!-- Table of Universities -->
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Rating</th>
+              <th>Enrolled</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% universities.forEach((uni) => { %>
+            <tr>
+              <td>
+                <% if (uni.image) { %>
+                <img
+                  src="<%= uni.image %>"
+                  alt="University Image"
+                  style="
+                    width: 90px;
+                    height: 60px;
+                    object-fit: contain;
+                    border-radius: 6px;
+                  "
+                />
+                <% } else { %>
+                <span class="text-muted">No Image</span>
+                <% } %>
+              </td>
+              <td><%= uni.name %></td>
+              <td><%= uni.rating %></td>
+              <td><%= uni.enrolled %></td>
+              <td><%= uni.location %></td>
+              <td>
+                <a
+                  href="/admin/edit-university/<%= uni._id %>"
+                  class="btn btn-sm btn-info"
+                  >Edit</a
+                >
+                <form
+                  action="/admin/delete-university/<%= uni._id %>"
+                  method="POST"
+                  style="display: inline"
+                >
+                  <button type="submit" class="btn btn-sm btn-danger">
+                    Delete
+                  </button>
+                </form>
+                <a
+                  href="/admin/university/<%= uni._id %>/gallery"
+                  class="btn btn-sm btn-secondary"
+                  >Gallery</a
+                >
+                <a
+                  href="/admin/university/<%= uni._id %>/partners"
+                  class="btn btn-sm btn-secondary"
+                  >Partners</a
+                >
+                <a
+                  href="/admin/university/<%= uni._id %>/reviews"
+                  class="btn btn-sm btn-warning"
+                  >Reviews</a
+                >
+                <a
+                  href="/admin/university/<%= uni._id %>/courses"
+                  class="btn btn-sm btn-success"
+                  >Courses</a
+                >
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+
+      <script>
+        function toggleForm() {
+          const form = document.getElementById("addForm");
+          form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+      </script>
+    </div>
+  </body>
+</html>

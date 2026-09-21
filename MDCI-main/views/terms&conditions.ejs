@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Desinerz Academy - Home</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="IE=10" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0//css/font-awesome.min.css"
+    />
+    <link href="/css/fonts/fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <!-- page animation section css start -->
+    <link rel="stylesheet" href="/css/animation.css" />
+    <link rel="stylesheet" href="/css/aos.css" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <!-- page animation section css end -->
+    <!-- cursor animated -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/css/cursor.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2//css/all.css"
+    />
+    <!-- cursor animated -->
+
+    <!-- slick -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- slick -->
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+  </head>
+
+  <body id="body">
+    <%- include("partials/header") %>
+    <div class="page-wrapper" id="dashboard-page">
+      <!-- main content -->
+      <div class="main-wrapper">
+        <div class="content-wrapper">
+          <section class="bg_banner">
+            <div class="container">
+              <div class="bg_banner-text text-center">
+                <p class="text-white">Chalo! Apna Career Bnaaye.</p>
+                <h1 class="text-white">
+                  Over 12,000+ students enrolled in the year of 2024-25
+                </h1>
+                <section class="is_breadcrumb">
+                  <div class="container">
+                    <ul
+                      class="p-0 m-0 position-relative d-flex align-items-center justify-content-center"
+                    >
+                      <li>
+                        <a href="/"
+                          ><i
+                            class="fa fa-home home_icon"
+                            aria-hidden="true"
+                          ></i>
+                          Home</a
+                        >
+                      </li>
+
+                      <?xml version="1.0" encoding="utf-8"?>
+                      <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                      <svg
+                        width="10px"
+                        height="10px"
+                        viewBox="0 0 1024 1024"
+                        class="icon"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"
+                          fill="#fff"
+                        />
+                      </svg>
+                      <li class="active">Terms & Conditions</li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-spacer static_content">
+            <div class="container">
+              <div class="static_content-wrap">
+                <%- termsConditionsSection %>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- main content -->
+
+    <!-- footer section -->
+        <%- include("partials/footer") %>
+
+
+    <!-- slick -->
+
+    <!-- slick -->
+
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        loop: true,
+        centeredSlides: true,
+        // Navigation arrows
+        //   navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        //   },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width is >= 480px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          // when window width is >= 640px
+          1280: {
+            slidesPerView: 3,
+            spaceBetween: 74,
+          },
+        },
+      });
+    </script>
+    <script>
+      var swiper2 = new Swiper(".swiper-container", {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        parallax: true,
+        speed: 600,
+        breakpoints: {
+          // when window width is >= 320px
+          768: {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+          },
+          // when window width is >= 480px
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          // when window width is >= 640px
+          1280: {
+            slidesPerView: 2,
+            spaceBetween: 29,
+          },
+        },
+      });
+    </script>
+    <script>
+      $(".slick-slider").slick({
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 9000,
+        cssEase: "linear",
+        slidesToShow: 2.1,
+        infinite: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3.1,
+            },
+          },
+          {
+            breakpoint: 600,
+
+            settings: {
+              slidesToShow: 3.1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1.1,
+            },
+          },
+        ],
+      });
+    </script>
+
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script src="/js/cursor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13//js/intlTelInput-jquery.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <!-- page animation section js start -->
+    <script type="text/javascript" src="/js/animation.js"></script>
+
+    <!-- page animation section js end -->
+  </body>
+</html>

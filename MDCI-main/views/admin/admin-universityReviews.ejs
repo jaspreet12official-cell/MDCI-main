@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>University Reviews</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h2>Reviews - <%= university.name %></h2>
+
+        <!-- Add Review Form -->
+        <form
+          action="/admin/university/<%= university._id %>/reviews"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input
+            name="reviewText"
+            placeholder="Review Summary"
+            class="form-control mb-2"
+            required
+          />
+          <input
+            name="name"
+            placeholder="Reviewer Name"
+            class="form-control mb-2"
+            required
+          />
+          <input
+            name="rating"
+            type="number"
+            placeholder="Rating (1-5)"
+            min="1"
+            max="5"
+            class="form-control mb-2"
+            required
+          />
+          <textarea
+            name="review"
+            placeholder="Review Content"
+            class="form-control mb-2"
+            required
+          ></textarea>
+          <input type="file" name="image" class="form-control mb-2" />
+          <button class="btn btn-warning">Add Review</button>
+        </form>
+
+        <hr />
+
+        <!-- Display Existing Reviews -->
+        <h4>Existing Reviews</h4>
+        <% if (university.reviews && university.reviews.length > 0) { %>
+        <div class="table-responsive">
+          <table
+            class="table table-bordered table-hover align-middle text-center"
+          >
+            <thead class="table-dark">
+              <tr>
+                <th style="min-width: 100px">Name</th>
+                <th style="min-width: 80px">Rating</th>
+                <th style="min-width: 100px">Image</th>
+                <th style="min-width: 200px">Review</th>
+                <th style="min-width: 100px">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% university.reviews.forEach((item, index) => { %>
+              <tr>
+                <td><%= item.review.name %></td>
+                <td><%= item.review.rating %></td>
+                <td>
+                  <% if (item.review.image) { %>
+                  <img
+                    src="<%= item.review.image %>"
+                    style="max-width: 80px; max-height: 80px; object-fit: cover"
+                    alt="Review Image"
+                  />
+                  <% } else { %> No Image <% } %>
+                </td>
+                <td
+                  style="
+                    word-break: break-word;
+                    white-space: normal;
+                    max-width: 300px;
+                  "
+                >
+                  <%= item.review.review %>
+                </td>
+
+                <td>
+                  <form
+                    action="/admin/university/<%= university._id %>/reviews/delete/<%= index %>"
+                    method="POST"
+                  >
+                    <button
+                      class="btn btn-sm btn-danger"
+                      onclick="return confirm('Are you sure to delete this review?')"
+                    >
+                      Delete
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+
+        <% } else { %>
+        <p>No reviews added yet.</p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

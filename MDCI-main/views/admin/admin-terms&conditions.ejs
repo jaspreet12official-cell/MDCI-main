@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+
+    <style>
+      body {
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #343a40;
+      }
+      .form-section {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 3rem;
+        border: 1px solid #e3e3e3;
+      }
+      .form-group label {
+        font-weight: 600;
+      }
+      .btn {
+        border-radius: 20px;
+      }
+      .btn-primary {
+        min-width: 130px;
+      }
+      .form-floating-label {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-floating-label {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-floating-label textarea {
+        width: 100%;
+        padding: 1.2rem 0.75rem 0.4rem 0.75rem;
+        font-size: 0.95rem;
+        border: 2px solid #1a73e8;
+        border-radius: 5px;
+        resize: vertical;
+        line-height: 1.3;
+        min-height: 60px; /* adjust to make it compact */
+      }
+
+      .form-floating-label label {
+        position: absolute;
+        top: 10px;
+        left: 12px;
+        background: white;
+        padding: 0 4px;
+        color: #1a73e8;
+        font-size: 0.85rem;
+        pointer-events: none;
+        transition: 0.2s ease;
+      }
+
+      .form-floating-label textarea:focus + label,
+      .form-floating-label textarea:not(:placeholder-shown) + label {
+        top: -10px;
+        left: 10px;
+        font-size: 0.75rem;
+        background: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>Terms And Conditions </h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section: Top Content Contact -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input type="hidden" name="section" value="termsConditionsSection" />
+          <input
+            type="hidden"
+            name="redirectTo"
+            value="/admin-terms&conditions"
+          />
+          <label for="editor-termsConditionsSection">Top Contact Content</label>
+          <textarea
+            id="editor-termsConditionsSection"
+            name="content"
+            class="form-control"
+          >
+<%= termsConditionsSection %></textarea
+          >
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <br /><br />
+
+      <!-- Section: Meta Title -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input
+            type="hidden"
+            name="section"
+            value="termsConditionsMetaHeading"
+          />
+          <input
+            type="hidden"
+            name="redirectTo"
+            value="/admin-terms&conditions"
+          />
+          <div class="form-floating-label">
+            <textarea
+              id="editor-termsConditionsMetaHeading"
+              name="content"
+              class="form-control"
+              placeholder=" "
+            >
+<%= termsConditionsMetaHeading %></textarea
+            >
+            <label for="editor-termsConditionsMetaHeading">Meta Title</label>
+          </div>
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: Meta Description -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input
+            type="hidden"
+            name="section"
+            value="termsConditionsMetaDescription"
+          />
+          <input
+            type="hidden"
+            name="redirectTo"
+            value="/admin-terms&conditions"
+          />
+          <div class="form-floating-label">
+            <textarea
+              id="editor-termsConditionsMetaDescription"
+              name="content"
+              class="form-control"
+              placeholder=" "
+            >
+<%= termsConditionsMetaDescription %></textarea
+            >
+            <label for="editor-termsConditionsMetaDescription"
+              >Meta Description</label
+            >
+          </div>
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: Meta Keywords -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input
+            type="hidden"
+            name="section"
+            value="termsConditionsMetaKeyword"
+          />
+          <input
+            type="hidden"
+            name="redirectTo"
+            value="/admin-terms&conditions"
+          />
+          <div class="form-floating-label">
+            <textarea
+              id="editor-termsConditionsMetaKeyword"
+              name="content"
+              class="form-control"
+              placeholder=" "
+            >
+<%= termsConditionsMetaKeyword %></textarea
+            >
+            <label for="editor-termsConditionsMetaKeyword">Meta Keyword</label>
+          </div>
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- Required Scripts -->
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.js"></script>
+
+      <!-- Summernote Init Script -->
+      <script src="/js/script.js"></script>
+      <script>
+        $(document).ready(function () {
+          // Initialize editors
+
+          $("#editor-termsConditionsSection").summernote({
+            height: 500,
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

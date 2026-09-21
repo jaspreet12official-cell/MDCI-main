@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enter Marks</title>
+    <%- include("../partials/head") %>
+  </head>
+  <body class="p-5">
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>Make Certificate</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+      <!-- Body Content Starts here  -->
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4 class="mb-3">Student Information</h4>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%= student.name %>"
+              disabled
+            />
+          </div>
+          <div class="mb-3 col-md-4">
+            <label>Email</label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%= student.email %>"
+              disabled
+            />
+          </div>
+          <div class="mb-3 col-md-4">
+            <label>Course</label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%= student.course.name %>"
+              disabled
+            />
+          </div>
+          <% if (student.fatherName) { %>
+          <div class="mb-3 col-md-4">
+            <label>Father's Name</label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%= student.fatherName %>"
+              disabled
+            />
+          </div>
+          <% } %> <% if (student.motherName) { %>
+          <div class="mb-3 col-md-4">
+            <label>Mother's Name</label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%= student.motherName %>"
+              disabled
+            />
+          </div>
+          <% } %> <% if (student.phone) { %>
+          <div class="mb-3 col-md-4">
+            <label>Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              value="<%= student.phone %>"
+              disabled
+            />
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <form method="POST" action="/marks/submit">
+      <input type="hidden" name="studentId" value="<%= student._id %>" />
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="mb-3">Certificate & Exam Details</h5>
+          <div class="row">
+            <div class="mb-3 col-md-4">
+              <label>Center</label>
+              <input type="text" name="center" class="form-control" required />
+            </div>
+            <div class="mb-3 col-md-4">
+              <label>Branch Name</label>
+              <input
+                type="text"
+                name="branchName"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3 col-md-4">
+              <label>Certificate Number</label>
+              <input
+                type="text"
+                name="certificateNo"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-md-6">
+              <label>Examination Month</label>
+              <input
+                type="text"
+                name="examMonth"
+                class="form-control"
+                placeholder="e.g. March"
+                required
+              />
+            </div>
+            <div class="mb-3 col-md-6">
+              <label>Examination Year</label>
+              <input
+                type="number"
+                name="examYear"
+                class="form-control"
+                placeholder="e.g. 2025"
+                required
+              />
+            </div>
+            <div class="mb-3 col-md-6">
+              <label>Course Completion Date</label>
+              <input
+                type="date"
+                name="courseCompletionDate"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3 col-md-6">
+              <label>Issue Date</label>
+              <input
+                type="date"
+                name="issueDate"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% if (subjects.length > 0) { %>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="mb-3">Enter Subject Marks</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center">
+              <thead class="table-light">
+                <tr>
+                  <th>Subject Code</th>
+                  <th>Subject Name</th>
+                  <th>Min Marks</th>
+                  <th>Max Marks</th>
+                  <th>Theoretical Marks</th>
+                  <th>Practical Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% subjects.forEach((subject, index) => { %>
+                <tr>
+                  <td><%= subject.subjectCode %></td>
+                  <td><%= subject.name %></td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="marks[<%= index %>][minMarks]"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="marks[<%= index %>][maxMarks]"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="marks[<%= index %>][theoryMarks]"
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="marks[<%= index %>][practicalMarks]"
+                      required
+                    />
+                  </td>
+
+                  <!-- Hidden fields to track subject info -->
+                  <input
+                    type="hidden"
+                    name="marks[<%= index %>][subjectCode]"
+                    value="<%= subject.subjectCode %>"
+                  />
+                  <input
+                    type="hidden"
+                    name="marks[<%= index %>][subjectName]"
+                    value="<%= subject.name %>"
+                  />
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="alert alert-warning">
+        <strong>No subjects found</strong> for the course "<%=
+        student.course.name %>". Please add subjects before entering marks.
+      </div>
+      <% } %>
+
+      <button type="submit" class="btn btn-success">Submit Details</button>
+    </form>
+  </body>
+</html>

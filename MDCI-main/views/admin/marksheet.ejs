@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Report</title>
+    <style>
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background-color: #002f6c;
+        }
+      }
+      body {
+        background-color: rgb(222, 220, 220);
+        overflow-x: hidden;
+      }
+      .container-fluid {
+        /* width: 60%;
+margin: 5% 20%; */
+        background-color: white;
+        padding: 0.5%;
+      }
+      .outer {
+        width: 100%;
+        margin: 0.2rem 0;
+      }
+      .outer-2 {
+        width: 100%;
+        margin: 1rem 0;
+      }
+      .outer-3 {
+        width: 95%;
+        margin: 2.5% 2.5%;
+      }
+      .report-header-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0.5rem;
+        /* margin: 2rem .5rem; */
+      }
+
+      /* .header-image {
+width: 8rem;
+} */
+      .header-div-inner-1 {
+        width: 30%;
+        font-size: 1rem;
+        text-align: right;
+        margin-right: 2rem;
+      }
+      .header-div-inner-2 {
+        width: 50%;
+        font-size: 2rem;
+        color: #002f6c;
+      }
+      h4 {
+        margin: 0.2rem 0.2rem;
+      }
+      .heading {
+        text-align: center;
+        width: 100%;
+        color: red;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+      .heading-2 {
+        text-align: center;
+        width: 90%;
+        color: #002f6c;
+        font-size: 1rem;
+        margin-left: 5%;
+      }
+      .heading-3 {
+        text-align: center;
+        width: 100%;
+        color: white;
+        font-size: 1.3rem;
+        background-color: #002f6c;
+        font-weight: bold;
+      }
+      .heading-4 {
+        text-align: center;
+        width: 60%;
+        color: #002f6c;
+        font-size: 1rem;
+        margin-left: 20%;
+        font-weight: bold;
+      }
+      .student-content {
+        width: 95%;
+        margin-left: 2.5%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: rgb(142, 141, 141);
+      }
+      .student-data {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content-result,
+      .result-content {
+        width: 300px;
+        text-align: left;
+      }
+
+      .student-result {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .student-part {
+        width: 70%;
+        margin: 0rem 0.5rem;
+      }
+      .data {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .result {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .content {
+        width: 70%;
+        text-align: left;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      th,
+      td {
+        border: 1px solid white;
+        padding: 5px;
+      }
+      th {
+        background-color: #002f6c;
+        color: white;
+      }
+      .total-row {
+        font-weight: bold;
+        background-color: aliceblue;
+      }
+      tr:nth-child(n + 3) {
+        background-color: aliceblue;
+      }
+      tr:nth-child(n + 3) td {
+        border-left: none;
+        border-right: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      /* tr:nth-child(n+3) td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+} */
+      .result-part {
+        width: 30%;
+      }
+      .outer-4 {
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: -80px;
+      }
+      .stamp-image {
+        margin-top: 50px;
+      }
+      .stamp-image-2 {
+        margin-top: 30px;
+      }
+      .download-btn {
+        float: left;
+        margin-top: 10px;
+        margin-left: 90%;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: block;
+      }
+
+      .download-btn:hover {
+        background-color: #0056b3;
+      }
+
+      @media print {
+        .download-btn {
+          display: none;
+        }
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        // Trigger the print dialog
+        window.print();
+
+        // After print dialog is closed, go back to previous page
+        window.onafterprint = function () {
+          window.history.back();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <button class="download-btn" onclick="printTable()">
+        Download Table
+      </button>
+
+      <div class="report-header-item">
+        <img src="/images/certificate/logobluepng.png" alt="Logo" width="300" />
+      </div>
+
+      <div class="heading">MAHARISHI DAYANAND COMPUTER INSTITUTE</div>
+      <div class="heading-2">
+        Under the Management of Maharishi Dayanand College Regd. by Govt of
+        Haryana
+      </div>
+      <div class="heading-3">ISO CERTIFIED 2001-2015</div>
+      <div class="heading-4">
+        <%= data.student.course.name %> EXAMINATION - <%= data.examYear %>
+      </div>
+
+      <div class="student-content">
+        <div class="student-image">
+          <img src="<%= data.student.imagePath %>" width="80" />
+        </div>
+        <div class="student-part">
+          <div class="student-data">
+            <h4>NAME :</h4>
+            <h4 class="content"><%= data.student.name %></h4>
+          </div>
+          <div class="student-data">
+            <h4>ROLL NO :</h4>
+            <h4 class="content"><%= data.student.regNo %></h4>
+          </div>
+          <div class="student-data">
+            <h4>F/H'S NAME :</h4>
+            <h4 class="content"><%= data.student.fatherName %></h4>
+          </div>
+          <div class="student-data">
+            <h4>M'S NAME :</h4>
+            <h4 class="content"><%= data.student.motherName %></h4>
+          </div>
+          <div class="student-data">
+            <h4>CENTER NAME :</h4>
+            <h4 class="content"><%= data.branchName %></h4>
+          </div>
+        </div>
+      </div>
+
+      <table id="marks-table">
+        <thead>
+          <tr>
+            <th>CODE</th>
+            <th>SUBJECTS</th>
+            <th>MAX. MARKS</th>
+            <th>MIN. MARKS</th>
+            <th>THEORY</th>
+            <th>PRAC</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody id="marks-body">
+          <% data.marks.forEach(mark => { %>
+          <tr>
+            <td><%= mark.subjectCode %></td>
+            <td><%= mark.subjectName %></td>
+            <td><%= mark.maxMarks %></td>
+            <td><%= mark.minMarks %></td>
+            <td class="theory"><%= mark.theoryMarks %></td>
+            <td class="practical"><%= mark.practicalMarks %></td>
+            <td class="subject-total"><%= mark.total %></td>
+          </tr>
+          <% }) %>
+          <tr class="total-row">
+            <td colspan="2">TOTAL</td>
+            <td id="total-max"></td>
+            <td id="total-min"></td>
+            <td id="total-theory"></td>
+            <td id="total-practical"></td>
+            <td id="total-obtained"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="student-content">
+        <div class="student-part">
+          <div class="student-data">
+            <h4><div class="content-result">IN WORDS :</div></h4>
+            <div class="result-content" class="content" id="in-words"></div>
+          </div>
+          <div class="student-data">
+            <h4><div class="content-result">PERCENTAGE :</div></h4>
+            <div class="result-content" class="content" id="percentage"></div>
+          </div>
+          <div class="student-data">
+            <h4><div class="content-result">ISSUE DATE :</div></h4>
+            <div class="result-content"><%= data.issueDate %></div>
+          </div>
+          <div class="student-data">
+            <h4><div class="content-result">DATE OF BIRTH :</div></h4>
+            <div class="result-content"><%= data.student.dob %></div>
+          </div>
+          <div class="student-data">
+            <h4><div class="content-result">BRANCH :</div></h4>
+            <div class="result-content"><%= data.branchName %></div>
+          </div>
+        </div>
+
+        <div class="result-part">
+          <div class="student-result">
+            <h4>Result :</h4>
+            <h4 class="result"><%= data.result || "Pass" %></h4>
+          </div>
+          <div class="student-result">
+            <h4>Division :</h4>
+            <h4 class="result"><%= data.division || "Good" %></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="outer-4">
+        <div class="sign-image">
+          <img
+            src="/images/certificate/DEEPAK SIGN.png"
+            alt="Signature"
+            width="250"
+          />
+        </div>
+        <div class="sign-image">
+          <img
+            src="/images/certificate/Steamp-mdci.png"
+            alt="Stamp"
+            width="80"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function printTable() {
+        window.print();
+      }
+
+      function numberToWords(num) {
+        const ones = [
+          "",
+          "ONE",
+          "TWO",
+          "THREE",
+          "FOUR",
+          "FIVE",
+          "SIX",
+          "SEVEN",
+          "EIGHT",
+          "NINE",
+          "TEN",
+          "ELEVEN",
+          "TWELVE",
+          "THIRTEEN",
+          "FOURTEEN",
+          "FIFTEEN",
+          "SIXTEEN",
+          "SEVENTEEN",
+          "EIGHTEEN",
+          "NINETEEN",
+        ];
+        const tens = [
+          "",
+          "",
+          "TWENTY",
+          "THIRTY",
+          "FORTY",
+          "FIFTY",
+          "SIXTY",
+          "SEVENTY",
+          "EIGHTY",
+          "NINETY",
+        ];
+
+        if (num < 20) return ones[num];
+        if (num < 100)
+          return (
+            tens[Math.floor(num / 10)] +
+            (num % 10 !== 0 ? " " + ones[num % 10] : "")
+          );
+        if (num < 1000) {
+          return (
+            ones[Math.floor(num / 100)] +
+            " HUNDRED" +
+            (num % 100 !== 0 ? " " + numberToWords(num % 100) : "")
+          );
+        }
+        return num;
+      }
+
+      function calculateTotals() {
+        const rows = document.querySelectorAll("#marks-body tr");
+        let totalTheory = 0,
+          totalPractical = 0,
+          totalObtained = 0;
+        let totalMax = 0,
+          totalMin = 0;
+
+        rows.forEach((row) => {
+          const theory =
+            parseInt(row.querySelector(".theory")?.textContent) || 0;
+          const practical =
+            parseInt(row.querySelector(".practical")?.textContent) || 0;
+          const total = theory + practical;
+
+          if (row.classList.contains("total-row")) return;
+
+          totalTheory += theory;
+          totalPractical += practical;
+          totalObtained += total;
+
+          totalMax += parseInt(row.cells[2]?.textContent) || 0;
+          totalMin += parseInt(row.cells[3]?.textContent) || 0;
+        });
+
+        document.getElementById("total-theory").textContent = totalTheory;
+        document.getElementById("total-practical").textContent = totalPractical;
+        document.getElementById("total-obtained").textContent = totalObtained;
+        document.getElementById("total-max").textContent = totalMax;
+        document.getElementById("total-min").textContent = totalMin;
+
+        document.getElementById("percentage").textContent =
+          ((totalObtained / totalMax) * 100).toFixed(2) + " %";
+        document.getElementById("in-words").textContent =
+          numberToWords(totalObtained);
+      }
+
+      // Run calculation after DOM is loaded
+      window.addEventListener("DOMContentLoaded", calculateTotals);
+    </script>
+  </body>
+</html>

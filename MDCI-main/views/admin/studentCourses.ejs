@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Dashboard - My Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 to-white min-h-screen">
+    <div class="flex flex-col md:flex-row min-h-screen">
+      <!-- Sidebar -->
+      <%- include("../partials/studentSidebar") %>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-4 sm:p-6 md:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
+          Welcome, <span class="text-blue-700"><%= student.name %></span> 📚
+        </h1>
+
+        <div
+          class="bg-white shadow-lg rounded-xl p-6 sm:p-8 max-w-3xl mx-auto w-full"
+        >
+          <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
+            My Enrolled Course
+          </h2>
+          <div class="text-gray-700 space-y-4">
+            <p>
+              <strong class="block text-sm text-gray-500">Course Name</strong>
+              <span class="text-lg sm:text-xl font-semibold text-blue-800">
+                <%= student.course?.name || "Not Assigned" %>
+              </span>
+            </p>
+
+            <% if (student.course?.description) { %>
+            <p>
+              <strong class="block text-sm text-gray-500">Description</strong>
+              <span class="block"><%= student.course.description %></span>
+            </p>
+            <% } %> <% if (student.course?.duration) { %>
+            <p>
+              <strong class="block text-sm text-gray-500">Duration</strong>
+              <span class="block"><%= student.course.duration %></span>
+            </p>
+            <% } %> <% if (student.course?.fees) { %>
+            <p>
+              <strong class="block text-sm text-gray-500">Course Fees</strong>
+              <span class="block">₹<%= student.course.fees %></span>
+            </p>
+            <% } %>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

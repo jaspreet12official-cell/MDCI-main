@@ -1,0 +1,27 @@
+.magnetic {
+  /* margin: -100px;
+  padding: 100px; */
+  display: inline-block;
+  border-radius: 50%;
+  /*border: 1px solid #000; //use this for debugging*/
+}
+
+#magnet-button {
+  display: inline-block;
+}
+
+.my-button {
+  background-color: #FFF;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.my-button:hover {
+  color: #FFF;
+  background-color: #000;
+  transition: 0.5s background-color, 0.5s box-shadow;
+  box-shadow: 0px 2px 25px rgba(0,0,0,0.5);
+}

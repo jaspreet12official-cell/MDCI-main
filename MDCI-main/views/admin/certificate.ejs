@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate</title>
+    <style>
+      /* Ensure certificate fits on one page */
+      @page {
+        size: A4 landscape;
+        margin: 0; /* Removes unwanted extra space */
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f5f5f5;
+      }
+
+      .certificate-container {
+        position: relative;
+        width: 1123px; /* Matches A4 Landscape */
+        height: 794px; /* Matches A4 Landscape */
+        background: white;
+        text-align: center;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      /* Background Images */
+      .background-border {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      .background-logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        opacity: 0.1; /* Watermark effect */
+        z-index: 2;
+      }
+
+      .background-header {
+        position: absolute;
+        top: 25px;
+        right: 50px;
+        width: 350px;
+        z-index: 3;
+      }
+
+      .certificate-content {
+        position: relative;
+        z-index: 4;
+        width: 85%;
+        margin: auto;
+        text-align: left;
+      }
+
+      .certificate-title {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: left;
+        margin-top: 100px;
+        margin-bottom: 15px;
+        color: gray;
+      }
+
+      .certificate-subtitle {
+        font-size: 44px;
+        font-weight: bold;
+        text-align: left;
+        width: 90%;
+      }
+
+      .certificate-text {
+        font-size: 27px;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      .highlight {
+        font-weight: bold;
+        color: #003399;
+      }
+
+      .signature {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 50px;
+        margin-top: 10px;
+      }
+
+      .signature div {
+        text-align: center;
+      }
+
+      /* .signature img {
+    width: 120px;
+    height: auto;
+} */
+
+      .certificate-number {
+        position: absolute;
+        bottom: 20px;
+        right: 50px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      /* Print Fix */
+      @media print {
+        body {
+          background: none;
+          display: block;
+        }
+
+        .certificate-container {
+          box-shadow: none;
+          margin: 2.5% 2.5%;
+          width: 95%;
+          height: 95%;
+          padding: 0;
+          page-break-before: avoid;
+          page-break-after: avoid;
+        }
+
+        .background-logo {
+          opacity: 0.75;
+        }
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        // Trigger the print dialog
+        window.print();
+
+        // After print dialog is closed, go back to previous page
+        window.onafterprint = function () {
+          window.history.back();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="certificate-container">
+      <!-- Background Images -->
+      <img
+        src="/images/certificate/frame.png"
+        alt="Certificate Border"
+        class="background-border"
+      />
+      <img
+        src="/images/certificate/bgwatermark.png"
+        alt="Watermark Logo"
+        class="background-logo"
+      />
+      <img
+        src="/images/certificate/logobluepng.png"
+        alt="Header Logo"
+        class="background-header"
+      />
+
+      <!-- Content -->
+      <div class="certificate-content">
+        <h2 class="certificate-title">CERTIFICATE OF COMPLETION</h2>
+        <p class="certificate-subtitle">
+          The Completion of Photoshop Mastery Course - <%=
+          data.student.course.name %>
+        </p>
+
+        <p class="certificate-text">
+          Introduced by <br />
+          <span class="highlight">MDCI, Rohtak</span> <br />
+          <em>(ISO CERTIFIED 2009-2015)</em>
+        </p>
+
+        <p class="certificate-text">
+          Completed by <br />
+          <span class="highlight" style="font-size: 40px"
+            ><%= data.student.name %></span
+          >
+        </p>
+
+        <p class="certificate-text">
+          Date -
+          <strong
+            ><%= new Date(data.courseCompletionDate).toDateString() %></strong
+          >
+        </p>
+
+        <!-- Signature Section -->
+        <div class="signature">
+          <div>
+            <img
+              src="/images/certificate/DEEPAK SIGN.png"
+              alt="Signature"
+              width="250"
+            />
+            <!-- <p>Signature</p> -->
+          </div>
+          <div>
+            <img
+              src="/images/certificate/Steamp-mdci.png"
+              alt="Stamp"
+              style="margin-top: -40px"
+              width="120"
+            />
+            <!-- <p>Official Seal</p> -->
+          </div>
+        </div>
+
+        <!-- Certificate Number -->
+        <p class="certificate-number">
+          CERTIFICATE NO - <%= data.certificateNo %>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Next.js build output
+.next/
+out/
+dist/
+
+# Local environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+
+# Logs
+logs
+*.log
+*.log.*
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE / editor configs
+.vscode/
+.idea/
+*.swp
+
+# Cache
+.cache/
+.next/cache/
+.vercel/
+.versel/
+tmp/
+temp/
+
+# Coverage / test
+coverage/
+*.lcov
+
+# Database / local storage
+*.db
+*.sqlite
+public/images/*
+!public/images/.gitkeep
+
+# Misc
+*.tgz
+*.gz
+*.zip
+*.tar

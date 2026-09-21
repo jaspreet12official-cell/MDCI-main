@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Subject</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Edit Subject</h2>
+
+    <form action="/admin/subjects/update/<%= subject._id %>" method="POST">
+      <div class="form-group">
+        <label>Subject Name</label>
+        <input type="text" class="form-control" name="name" value="<%= subject.name %>" required>
+      </div>
+
+      <div class="form-group">
+        <label>Subject Code</label>
+        <input type="text" class="form-control" name="subjectCode" value="<%= subject.subjectCode %>" required>
+      </div>
+
+      <div class="form-group">
+        <label>Subject Description</label>
+        <textarea class="form-control" name="description" rows="3"><%= subject.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Select Course</label>
+        <select class="form-control" name="courseId" required>
+          <% courses.forEach(course => { %>
+            <option value="<%= course._id %>" <%= subject.course?._id.toString() === course._id.toString() ? 'selected' : '' %>>
+              <%= course.name %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Subject</button>
+      <a href="/admin/subjects" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

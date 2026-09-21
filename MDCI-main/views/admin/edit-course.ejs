@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>Courses</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h2 class="mb-4">Edit Course: <%= course.name %></h2>
+        <form
+  action="/edit-course/<%= course._id %>"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <!-- course name, rating, fees -->
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Course Name</label>
+      <input
+        type="text"
+        name="name"
+        value="<%= course.name %>"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Rating</label>
+      <input
+        type="number"
+        step="0.1"
+        name="rating"
+        value="<%= course.rating %>"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Fees</label>
+      <input
+        type="number"
+        name="fees"
+        value="<%= course.fees %>"
+        class="form-control"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- ✅ Course Category -->
+  <div class="form-group">
+    <label>Course Category</label>
+    <select name="category" class="form-control" required>
+      <option value="">Select Category</option>
+      <option value="Computer Basics" <%= course.category === 'Computer Basics' ? 'selected' : '' %>>Computer Basics</option>
+      <option value="Govt Typing Exams" <%= course.category === 'Govt Typing Exams' ? 'selected' : '' %>>Govt Typing Exams</option>
+      <option value="Design Courses" <%= course.category === 'Design Courses' ? 'selected' : '' %>>Design Courses</option>
+      <option value="Development" <%= course.category === 'Development' ? 'selected' : '' %>>Development</option>
+      <option value="Digital Marketing" <%= course.category === 'Digital Marketing' ? 'selected' : '' %>>Digital Marketing</option>
+    </select>
+  </div>
+
+  <!-- topic cover content -->
+  <div class="form-group">
+    <label>Topic Cover Content</label>
+    <textarea name="topicCoverContent" class="form-control" rows="5">
+<%= course.topicCoverContent %></textarea
+    >
+  </div>
+
+  <!-- SEO fields -->
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Meta Title</label>
+      <input
+        type="text"
+        name="metaTitle"
+        value="<%= course.metaTitle %>"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Meta Description</label>
+      <input
+        type="text"
+        name="metaDescription"
+        value="<%= course.metaDescription %>"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Meta Keywords</label>
+      <input
+        type="text"
+        name="metaKeywords"
+        value="<%= course.metaKeywords %>"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <!-- File Inputs -->
+  <div class="form-group">
+    <label>Course Image (leave empty to keep current)</label>
+    <input type="file" name="courseImage" class="form-control-file" />
+  </div>
+  <div class="form-group">
+    <label>Course PDF (leave empty to keep current)</label>
+    <input type="file" name="pdf" class="form-control-file" />
+  </div>
+
+  <!-- Topics -->
+  <div class="form-group">
+    <label>Topics:</label>
+    <div id="edit-topic-container">
+      <% course.topics.forEach(function(topic, index) { %>
+      <div class="form-row mb-2 d-flex gap-2 topic-row">
+        <div class="col">
+          <input
+            type="text"
+            name="topicNames[]"
+            value="<%= topic.name %>"
+            class="form-control"
+            placeholder="Topic Name"
+            required
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            name="topicDurations[]"
+            value="<%= topic.duration %>"
+            class="form-control"
+            placeholder="Duration"
+            required
+          />
+        </div>
+        <div class="col-auto">
+          <a
+            href="/admin-course/<%= course._id %>/delete-topic/<%= index %>"
+            class="btn btn-danger"
+          >
+            &times;
+          </a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+    <button
+      type="button"
+      id="add-edit-topic"
+      class="btn btn-secondary mt-2"
+    >
+      Add Topic
+    </button>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-success px-5">
+      Update Course
+    </button>
+  </div>
+</form>
+
+      </div>
+
+      <script>
+        document
+          .getElementById("add-edit-topic")
+          .addEventListener("click", () => {
+            const container = document.getElementById("edit-topic-container");
+
+            const div = document.createElement("div");
+            div.classList.add(
+              "form-row",
+              "mb-2",
+              "d-flex",
+              "gap-2",
+              "topic-row"
+            );
+
+            div.innerHTML = `
+      <div class="col">
+        <input
+          type="text"
+          name="topicNames[]"
+          class="form-control"
+          placeholder="Topic Name"
+          required
+        />
+      </div>
+      <div class="col">
+        <input
+          type="text"
+          name="topicDurations[]"
+          class="form-control"
+          placeholder="Duration"
+          required
+        />
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-danger remove-topic">&times;</button>
+      </div>
+    `;
+
+            container.appendChild(div);
+          });
+
+        document.addEventListener("click", function (e) {
+          if (e.target.classList.contains("remove-topic")) {
+            e.target.closest(".topic-row").remove();
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>

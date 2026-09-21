@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Desinerz Academy - Home</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="IE=10" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/fontawesome/styles.min.css" />
+    <link href="/css/fonts/fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <!-- page animation section css start -->
+    <link rel="stylesheet" href="/css/animation.css" />
+    <link rel="stylesheet" href="/css/aos.css" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <!-- page animation section css end -->
+    <!-- cursor animated -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/css/cursor.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2//css/all.css"
+    />
+    <!-- cursor animated -->
+
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- swiper -->
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+  </head>
+
+  <body id="is_home">
+    <!-- main content -->
+
+    <div class="row auth-row position-relative">
+      <a href="/" class="auth_logo">
+        <img
+          src="<%= headerImageUrl %>"
+          alt="Desinerz Academy"
+        />
+      </a>
+      <div class="col-md-6 h-100 auth-im-wrapper">
+        <div class="auth-left-content text-center w-75 mx-auto">
+          <div class="top_banner-im-wrapper">
+            <img
+              class="w-100"
+              src="/images/career path.png"
+              alt="career path"
+            />
+          </div>
+          <h1 class="text-center">
+            <span class="text-white"
+              >Skill badhao, career banao! Desinerz Academy</span
+            >
+          </h1>
+          <div class="banner_listing p-0 mt-3">
+            <div class="banner_list-item">
+              <svg
+                width="33"
+                height="32"
+                viewBox="0 0 33 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.5303 0.629542C15.6508 -0.264628 10.1268 3.55953 8.9411 9.34188C8.73016 10.3752 8.41272 11.2117 7.9732 11.8988C7.93414 11.9608 7.89898 12.0258 7.86871 12.0927L5.73864 16.8329C5.53643 17.2837 5.56866 17.8042 5.82458 18.2262C6.08142 18.649 6.52874 18.9176 7.02197 18.946L9.44897 19.0837V21.7597C9.44897 23.087 10.5282 24.1662 11.8545 24.1662H13.2267V27.3658C13.2267 28.194 13.8987 28.8659 14.7269 28.8659H24.7748C25.603 28.8659 26.275 28.194 26.275 27.3658C26.275 24.7542 27.0993 20.7928 28.9393 17.8277C28.9403 17.8267 28.9403 17.8257 28.9413 17.8247C30.625 15.3694 31.2355 12.3764 30.6582 9.38876C30.6582 9.38827 30.6582 9.38827 30.6582 9.38827C29.7812 4.84871 26.1129 1.32882 21.5303 0.629542ZM26.442 16.1639C26.4176 16.1991 26.3951 16.2357 26.3736 16.2728C24.7397 18.9167 23.6087 22.5391 23.3372 25.8656H16.227V23.5714C16.227 22.2451 15.1478 21.1659 13.8206 21.1659H12.4493V18.5221C12.4493 17.2475 11.4521 16.1927 10.1795 16.12L9.36888 16.0741L10.5624 13.418C11.1718 12.437 11.6035 11.2991 11.8808 9.94398C12.7452 5.72871 16.7925 2.93934 21.0771 3.59565C24.3568 4.09571 27.0846 6.71223 27.7126 9.95716C28.1385 12.1649 27.6872 14.3693 26.442 16.1639ZM4.84497 23.4015C4.84497 26.102 7.04248 28.2995 9.74298 28.2995C10.5712 28.2995 11.2431 27.6275 11.2431 26.7993C11.2431 25.9711 10.5712 25.2992 9.74298 25.2992C8.69696 25.2992 7.84527 24.4475 7.84527 23.4015C7.84527 22.5733 7.17333 21.9013 6.34515 21.9013C5.5169 21.9013 4.84497 22.5733 4.84497 23.4015Z"
+                  fill="#F1BF5A"
+                ></path>
+                <path
+                  d="M3.14447 23.2305C2.31628 23.2305 1.64429 23.9025 1.64429 24.7306C1.64429 28.4634 4.68079 31.4999 8.4126 31.4999C9.24085 31.4999 9.91278 30.828 9.91278 29.9998C9.91278 29.1716 9.24084 28.4996 8.4126 28.4996C6.33527 28.4996 4.64466 26.809 4.64466 24.7307C4.64465 23.9025 3.97271 23.2305 3.14447 23.2305Z"
+                  fill="#F1BF5A"
+                ></path>
+              </svg>
+              <p class="text-white">Academic Courses</p>
+            </div>
+            <div class="banner_list-item">
+              <svg
+                width="33"
+                height="32"
+                viewBox="0 0 33 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1_3301)">
+                  <path
+                    d="M31.6548 9.2041C31.6548 7.22461 30.0449 5.61426 28.0659 5.61426H24.3848V5.13379C24.3848 2.5791 22.3062 0.5 19.751 0.5H12.7637C10.2085 0.5 8.12988 2.5791 8.12988 5.13379V5.61426H4.44873C2.46973 5.61426 0.859863 7.22461 0.859863 9.2041V10.831C0.859863 12.9765 1.6322 14.9437 2.91113 16.4736V25.8213C2.91113 28.9521 5.45849 31.5 8.58984 31.5H23.9248C27.0562 31.5 29.6035 28.9521 29.6035 25.8213V16.4736C30.8824 14.9437 31.6548 12.9765 31.6548 10.831V9.2041ZM11.1299 5.13379C11.1299 4.2334 11.8628 3.5 12.7637 3.5H19.751C20.6519 3.5 21.3848 4.2334 21.3848 5.13379V5.61426H11.1299V5.13379ZM3.85986 9.2041C3.85986 8.8789 4.12402 8.61426 4.44873 8.61426H28.0659C28.3906 8.61426 28.6548 8.87891 28.6548 9.2041V10.831C28.6548 12.3829 28.0399 13.7911 27.0456 14.8346C27.0422 14.8379 27.0393 14.8418 27.036 14.8452C25.9772 15.9509 24.4907 16.6436 22.8428 16.6436H22.1035V16.2334C22.1035 15.4053 21.4321 14.7334 20.6035 14.7334C19.7749 14.7334 19.1035 15.4053 19.1035 16.2334V16.6436H13.4111V16.2334C13.4111 15.4053 12.7398 14.7334 11.9111 14.7334C11.0825 14.7334 10.4111 15.4053 10.4111 16.2334V16.6436H9.67187C8.02398 16.6436 6.53741 15.9509 5.47869 14.8452C5.47533 14.8418 5.4724 14.838 5.46905 14.8346C4.47479 13.7911 3.85986 12.3829 3.85986 10.8311V9.2041ZM23.9248 28.5H8.58984C7.11279 28.5 5.91113 27.2978 5.91113 25.8213V18.7888C7.05359 19.3311 8.32544 19.6436 9.67187 19.6436H10.4111V20.0537C10.4111 20.8819 11.0825 21.5537 11.9111 21.5537C12.7397 21.5537 13.4111 20.8818 13.4111 20.0537V19.6436H19.1035V20.0537C19.1035 20.8819 19.7749 21.5537 20.6035 21.5537C21.4321 21.5537 22.1035 20.8818 22.1035 20.0537V19.6436H22.8428C24.1892 19.6436 25.4611 19.3311 26.6035 18.7888V25.8213C26.6035 27.2978 25.4019 28.5 23.9248 28.5Z"
+                    fill="#F4876B"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_3301">
+                    <rect
+                      width="32"
+                      height="32"
+                      fill="white"
+                      transform="translate(0.257324)"
+                    ></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <p class="text-white">Project Internship</p>
+            </div>
+            <div class="banner_list-item">
+              <svg
+                width="29"
+                height="28"
+                viewBox="0 0 29 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.2573 2V1C15.2573 0.734783 15.152 0.48043 14.9644 0.292893C14.7769 0.105357 14.5225 0 14.2573 0C13.9921 0 13.7378 0.105357 13.5502 0.292893C13.3627 0.48043 13.2573 0.734783 13.2573 1V2C13.2573 2.26522 13.3627 2.51957 13.5502 2.70711C13.7378 2.89464 13.9921 3 14.2573 3C14.5225 3 14.7769 2.89464 14.9644 2.70711C15.152 2.51957 15.2573 2.26522 15.2573 2ZM5.76732 4.1C5.57602 3.93617 5.32995 3.85057 5.07827 3.86029C4.82659 3.87001 4.58786 3.97434 4.40976 4.15244C4.23167 4.33053 4.12733 4.56927 4.11761 4.82095C4.10789 5.07262 4.1935 5.3187 4.35732 5.51L5.06732 6.22C5.25863 6.38383 5.5047 6.46943 5.75638 6.45971C6.00805 6.44999 6.24679 6.34566 6.42489 6.16756C6.60298 5.98947 6.70731 5.75073 6.71704 5.49905C6.72676 5.24738 6.64115 5.0013 6.47732 4.81L5.76732 4.1ZM2.25732 15C2.52254 15 2.77689 14.8946 2.96443 14.7071C3.15197 14.5196 3.25732 14.2652 3.25732 14C3.25732 13.7348 3.15197 13.4804 2.96443 13.2929C2.77689 13.1054 2.52254 13 2.25732 13H1.25732C0.992108 13 0.737754 13.1054 0.550217 13.2929C0.362681 13.4804 0.257324 13.7348 0.257324 14C0.257324 14.2652 0.362681 14.5196 0.550217 14.7071C0.737754 14.8946 0.992108 15 1.25732 15H2.25732ZM4.35732 23.9C4.54469 24.0862 4.79814 24.1908 5.06232 24.1908C5.32651 24.1908 5.57996 24.0862 5.76732 23.9L6.47732 23.19C6.64115 22.9987 6.72676 22.7526 6.71704 22.5009C6.70731 22.2493 6.60298 22.0105 6.42489 21.8324C6.24679 21.6543 6.00805 21.55 5.75638 21.5403C5.5047 21.5306 5.25863 21.6162 5.06732 21.78L4.35732 22.49C4.17107 22.6774 4.06653 22.9308 4.06653 23.195C4.06653 23.4592 4.17107 23.7126 4.35732 23.9ZM23.4473 21.78C23.256 21.6162 23.0099 21.5306 22.7583 21.5403C22.5066 21.55 22.2679 21.6543 22.0898 21.8324C21.9117 22.0105 21.8073 22.2493 21.7976 22.5009C21.7879 22.7526 21.8735 22.9987 22.0373 23.19L22.7473 23.9C22.9386 24.0638 23.1847 24.1494 23.4364 24.1397C23.6881 24.13 23.9268 24.0257 24.1049 23.8476C24.283 23.6695 24.3873 23.4307 24.397 23.1791C24.4068 22.9274 24.3211 22.6813 24.1573 22.49L23.4473 21.78ZM27.2573 13H26.2573C25.9921 13 25.7378 13.1054 25.5502 13.2929C25.3627 13.4804 25.2573 13.7348 25.2573 14C25.2573 14.2652 25.3627 14.5196 25.5502 14.7071C25.7378 14.8946 25.9921 15 26.2573 15H27.2573C27.5225 15 27.7769 14.8946 27.9644 14.7071C28.152 14.5196 28.2573 14.2652 28.2573 14C28.2573 13.7348 28.152 13.4804 27.9644 13.2929C27.7769 13.1054 27.5225 13 27.2573 13ZM24.1573 4.1C23.97 3.91375 23.7165 3.80921 23.4523 3.80921C23.1881 3.80921 22.9347 3.91375 22.7473 4.1L22.0373 4.81C21.9326 4.89965 21.8476 5.00996 21.7876 5.13403C21.7276 5.25809 21.6938 5.39323 21.6885 5.53095C21.6832 5.66867 21.7064 5.806 21.7567 5.93432C21.807 6.06265 21.8832 6.1792 21.9807 6.27665C22.0781 6.3741 22.1947 6.45036 22.323 6.50064C22.4513 6.55091 22.5887 6.57412 22.7264 6.5688C22.8641 6.56348 22.9992 6.52975 23.1233 6.46973C23.2474 6.4097 23.3577 6.32468 23.4473 6.22L24.1573 5.51C24.3436 5.32264 24.4481 5.06919 24.4481 4.805C24.4481 4.54081 24.3436 4.28736 24.1573 4.1ZM5.25732 14C5.25951 15.4778 5.62558 16.9324 6.3232 18.2352C7.02083 19.538 8.02853 20.649 9.25732 21.47V27C9.25732 27.2652 9.36268 27.5196 9.55022 27.7071C9.73775 27.8946 9.99211 28 10.2573 28H18.2573C18.5225 28 18.7769 27.8946 18.9644 27.7071C19.152 27.5196 19.2573 27.2652 19.2573 27V21.47C20.5506 20.6059 21.5979 19.4213 22.297 18.0318C22.9961 16.6423 23.3232 15.0954 23.2463 13.5419C23.1694 11.9883 22.6912 10.4812 21.8584 9.16757C21.0255 7.85391 19.8664 6.77853 18.4941 6.0463C17.1218 5.31408 15.5831 4.95001 14.0282 4.98961C12.4732 5.02921 10.9551 5.47112 9.62186 6.27225C8.2886 7.07338 7.18573 8.20637 6.42081 9.56073C5.65588 10.9151 5.25502 12.4446 5.25732 14ZM11.2573 26V24H17.2573V26H11.2573ZM14.2573 7C15.7976 7.00083 17.2945 7.50964 18.5163 8.44758C19.738 9.38553 20.6163 10.7002 21.015 12.188C21.4137 13.6757 21.3106 15.2534 20.7216 16.6766C20.1326 18.0998 19.0907 19.289 17.7573 20.06C17.6047 20.1481 17.4781 20.275 17.3903 20.4277C17.3025 20.5805 17.2566 20.7538 17.2573 20.93V22H15.2573V16H17.2573C17.5225 16 17.7769 15.8946 17.9644 15.7071C18.152 15.5196 18.2573 15.2652 18.2573 15C18.2573 14.7348 18.152 14.4804 17.9644 14.2929C17.7769 14.1054 17.5225 14 17.2573 14H11.2573C10.9921 14 10.7378 14.1054 10.5502 14.2929C10.3627 14.4804 10.2573 14.7348 10.2573 15C10.2573 15.2652 10.3627 15.5196 10.5502 15.7071C10.7378 15.8946 10.9921 16 11.2573 16H13.2573V22H11.2573V20.92C11.258 20.7438 11.2121 20.5705 11.1243 20.4177C11.0365 20.265 10.9099 20.1381 10.7573 20.05C9.42885 19.2769 8.39177 18.088 7.80619 16.6668C7.2206 15.2457 7.11905 13.6713 7.51722 12.1867C7.91539 10.7021 8.79114 9.38977 10.0093 8.45238C11.2274 7.51499 12.7203 7.0046 14.2573 7Z"
+                  fill="#B4708D"
+                ></path>
+              </svg>
+
+              <p class="text-white">Skill Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div class="contact-form auth-form w-100 px-4" style="max-width: 100%">
+          <div class="auth-heading text-center mb-4">
+            <h3 class="font-lora fw-bold">
+              Sign up <span class="text-primary">Desinerz Academy</span>
+            </h3>
+          </div>
+
+          <form action="/admin/login" method="post" style="width: 100%">
+            <!-- Username -->
+            <div class="mb-4">
+              <label for="fname" class="form-label fw-semibold">Name</label>
+              <div class="position-relative">
+                <input
+                  type="text"
+                  class="form-control ps-5 py-3 rounded"
+                  id="fname"
+                  name="username"
+                  placeholder="Type your username"
+                  required
+                />
+                <span
+                  class="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted"
+                >
+                  <i class="ph ph-user"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+              <label for="current-password" class="form-label fw-semibold"
+                >Password</label
+              >
+              <div class="position-relative">
+                <input
+                  type="password"
+                  class="form-control ps-5 py-3 rounded"
+                  id="current-password"
+                  name="password"
+                  placeholder="Enter password"
+                  required
+                />
+                <span
+                  class="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted"
+                >
+                  <i class="ph ph-lock"></i>
+                </span>
+                <span
+                  class="toggle-password position-absolute top-50 end-0 translate-middle-y pe-3 text-muted"
+                  role="button"
+                >
+                  <i class="ph ph-eye-slash"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid" style="width: 100%; text-align: center">
+              <button
+                type="submit"
+                class="btn btn-primary py-2 rounded-pill"
+                style="width: 300px"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- swiper -->
+
+    <!-- swiper -->
+
+    <script>
+      $(".toggle-password").click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        input = $(this).parent().find("input");
+        if (input.attr("type") == "password") {
+          input.attr("type", "text");
+        } else {
+          input.attr("type", "password");
+        }
+      });
+    </script>
+
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: false,
+        },
+        // Navigation arrows
+        //   navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        //   },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width is >= 480px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          // when window width is >= 640px
+          1280: {
+            slidesPerView: 3,
+            spaceBetween: 74,
+          },
+        },
+      });
+    </script>
+    <script>
+      var swiper2 = new Swiper(".swiper-container", {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        parallax: true,
+        speed: 600,
+        breakpoints: {
+          // when window width is >= 320px
+          768: {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+          },
+          // when window width is >= 480px
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          // when window width is >= 640px
+          1280: {
+            slidesPerView: 2,
+            spaceBetween: 29,
+          },
+        },
+      });
+    </script>
+
+    <script>
+      $(".slick-slider").slick({
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 9000,
+        cssEase: "linear",
+        slidesToShow: 2.1,
+        infinite: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3.1,
+            },
+          },
+          {
+            breakpoint: 600,
+
+            settings: {
+              slidesToShow: 3.1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1.1,
+            },
+          },
+        ],
+      });
+    </script>
+
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script src="/js/cursor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13//js/intlTelInput-jquery.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <!-- page animation section js start -->
+    <script type="text/javascript" src="/js/animation.js"></script>
+
+    <!-- page animation section js end -->
+  </body>
+</html>

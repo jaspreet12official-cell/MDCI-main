@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <style>
+      .toggle-form {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>Subjects</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+    <div class="container mt-5">
+      <h2 class="mb-3">Manage Subjects</h2>
+
+      <!-- Toggle Button -->
+      <button class="btn btn-success mb-3" onclick="toggleForm()">
+        + Add Subject
+      </button>
+
+      <!-- Add Subject Form -->
+      <div class="card mb-4 toggle-form" id="subjectForm">
+        <div class="card-body">
+          <form action="/admin/subjects" method="POST">
+            <div class="form-group">
+              <label>Subject Name</label>
+              <input type="text" class="form-control" name="name" required />
+            </div>
+
+            <!-- ✅ New Field -->
+            <div class="form-group">
+              <label>Subject Code</label>
+              <input
+                type="text"
+                class="form-control"
+                name="subjectCode"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Subject Description</label>
+              <textarea
+                class="form-control"
+                name="description"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Select Course</label>
+              <select class="form-control" name="courseId" required>
+                <% courses.forEach(course => { %>
+                <option value="<%= course._id %>"><%= course.name %></option>
+                <% }) %>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Subject</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Subject Table -->
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Sr.</th>
+            <th>Subject Name</th>
+            <th>Subject Code</th>
+            <!-- ✅ New Column -->
+            <th>Course</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% subjects.forEach((subject, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= subject.name %></td>
+            <td><%= subject.subjectCode %></td>
+            <!-- ✅ New Cell -->
+            <td><%= subject.course?.name || "N/A" %></td>
+            <td>
+              <!-- ✅ Edit Button with Route -->
+              <a
+                href="/admin/subjects/edit/<%= subject._id %>"
+                class="btn btn-sm btn-warning"
+                >Edit</a
+              >
+
+              <!-- Delete Button -->
+              <a
+                href="/admin/subjects/delete/<%= subject._id %>"
+                class="btn btn-sm btn-danger"
+                onclick="return confirm('Are you sure?')"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function toggleForm() {
+        const form = document.getElementById("subjectForm");
+        form.style.display = form.style.display === "none" ? "block" : "none";
+      }
+    </script>
+    </div>
+  </body>
+</html>

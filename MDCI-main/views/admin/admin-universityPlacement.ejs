@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <style>
+      .file-input-group {
+        margin-bottom: 10px;
+      }
+      .preview-img {
+        max-height: 150px;
+        margin: 5px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    </style>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>University Placement</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h2>Placement Partners - <%= university.name %></h2>
+
+        <!-- Upload Form -->
+        <form
+          action="/admin/university/<%= university._id %>/partners"
+          method="POST"
+          enctype="multipart/form-data"
+          id="partnerForm"
+        >
+          <div id="partnerInputs">
+            <div class="file-input-group">
+              <input
+                type="file"
+                name="partnerImages"
+                class="form-control-file"
+                onchange="previewPartnerImage(this)"
+                required
+              />
+              <div class="image-preview"></div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="addPartnerInput()"
+          >
+            Add More Images
+          </button>
+          <button class="btn btn-primary mt-2" type="submit">
+            Upload Images
+          </button>
+        </form>
+
+        <hr />
+        <h4>Existing Placement Partner Images</h4>
+        <div class="row">
+          <% university.placementPartnerImages.forEach((img, index) => { %>
+          <div class="col-md-3 text-center mb-4">
+            <div class="card shadow-sm" style="height: 200px; overflow: hidden">
+              <img
+                src="<%= img %>"
+                class="w-100 h-100"
+                style="object-fit: cover; border-radius: 8px"
+                alt="Partner Image"
+              />
+            </div>
+            <form
+              action="/admin/university/<%= university._id %>/partners/delete/<%= index %>"
+              method="POST"
+              onsubmit="return confirmDelete(event)"
+              class="mt-2"
+            >
+              <button type="submit" class="btn btn-sm btn-danger">
+                Delete
+              </button>
+            </form>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <script>
+        let partnerInputCount = 1;
+        const maxPartnerInputs = 10;
+
+        function addPartnerInput() {
+          if (partnerInputCount >= maxPartnerInputs) {
+            alert("You can upload a maximum of 10 images.");
+            return;
+          }
+
+          const container = document.getElementById("partnerInputs");
+          const newGroup = document.createElement("div");
+          newGroup.className = "file-input-group";
+          newGroup.innerHTML = `
+          <input type="file" name="partnerImages" class="form-control-file" onchange="previewPartnerImage(this)" required />
+          <div class="image-preview"></div>
+        `;
+          container.appendChild(newGroup);
+          partnerInputCount++;
+        }
+
+        function previewPartnerImage(input) {
+          const previewDiv = input.nextElementSibling;
+          previewDiv.innerHTML = "";
+
+          if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const img = document.createElement("img");
+              img.src = e.target.result;
+              img.className = "preview-img";
+              previewDiv.appendChild(img);
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        function confirmDelete(event) {
+          event.preventDefault();
+
+          Swal.fire({
+            title: "Are you sure?",
+            text: "This image will be permanently deleted.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              event.target.submit();
+            }
+          });
+
+          return false;
+        }
+      </script>
+    </div>
+  </body>
+</html>

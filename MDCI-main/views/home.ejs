@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Desinerz Academy - Home</title>
+    <meta
+      name="description"
+      content="Best computer education and training institute."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/styles.min.css" />
+    <link rel="stylesheet" href="css/fonts/fonts.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- Animation & Effects -->
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/cursor.css" />
+
+    <!-- Icon Libraries -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+
+    <!-- Swiper & Slick -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+
+    <!-- Core JS (required before your modal or scripts) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper & Slick JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      type="text/javascript"
+    ></script>
+    >
+
+    <!-- Custom Page Styles -->
+    <style>
+      .rotating-text {
+        position: relative;
+        height: 50px;
+        overflow: hidden;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .word {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        animation: rotateWords 10s infinite;
+      }
+
+      .word:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .word:nth-child(2) {
+        animation-delay: 2s;
+      }
+      .word:nth-child(3) {
+        animation-delay: 4s;
+      }
+      .word:nth-child(4) {
+        animation-delay: 6s;
+      }
+      .word:nth-child(5) {
+        animation-delay: 8s;
+      }
+
+      .form_group select.styled_select {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #fff;
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14l-4.796-5.481c-.566-.648-.106-1.659.753-1.659h9.592c.86 0 1.32 1.01.753 1.659L8.753 11.14a1 1 0 0 1-1.506 0z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+      }
+
+      .form_group select.styled_select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+      }
+
+      .enroll-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .enroll-modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 700px;
+        width: 100%;
+      }
+
+      .enroll-modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      @keyframes rotateWords {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        10%,
+        20% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        30% {
+          opacity: 0;
+          transform: translateY(100%);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="is_home">
+    <%- include("partials/header") %>
+
+    <div class="page-wrapper" id="dashboard-page">
+      <!-- main content -->
+
+      <section class="ad_banner"><%- currentContent %></section>
+
+      <section class="top-banner">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="top_banner-im-wrapper">
+                <img
+                  class="w-100"
+                  src="<%= bannerImageUrl%>"
+                  alt="career path"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="banner_left">
+                <h1 class="text-center"><%- contentAboveForm%></h1>
+                <form
+                  class="banner_form"
+                  action="/banner-inquiry"
+                  method="POST"
+                >
+                  <div class="form_group">
+                    <input
+                      name="fullName"
+                      placeholder="Full Name *"
+                      type="text"
+                      required
+                    />
+                  </div>
+
+                  <div class="form_group">
+                    <input
+                      name="phone"
+                      placeholder="Phone number *"
+                      type="tel"
+                      required
+                    />
+                  </div>
+
+                  <div class="form_group">
+                    <select name="courseChoice" required class="styled_select">
+                      <option value="" disabled selected>
+                        -- Select a Course --
+                      </option>
+                      <% courses.forEach(course => { %>
+                      <option value="<%= course.name %>">
+                        <%= course.name %>
+                      </option>
+                      <% }); %>
+                    </select>
+                  </div>
+
+                  <button class="btn_form" type="submit">
+                    Get Free Counselling
+                  </button>
+                </form>
+
+                <div class="banner_listing">
+                  <div class="banner_list-item">
+                    <svg
+                      width="33"
+                      height="32"
+                      viewBox="0 0 33 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.5303 0.629542C15.6508 -0.264628 10.1268 3.55953 8.9411 9.34188C8.73016 10.3752 8.41272 11.2117 7.9732 11.8988C7.93414 11.9608 7.89898 12.0258 7.86871 12.0927L5.73864 16.8329C5.53643 17.2837 5.56866 17.8042 5.82458 18.2262C6.08142 18.649 6.52874 18.9176 7.02197 18.946L9.44897 19.0837V21.7597C9.44897 23.087 10.5282 24.1662 11.8545 24.1662H13.2267V27.3658C13.2267 28.194 13.8987 28.8659 14.7269 28.8659H24.7748C25.603 28.8659 26.275 28.194 26.275 27.3658C26.275 24.7542 27.0993 20.7928 28.9393 17.8277C28.9403 17.8267 28.9403 17.8257 28.9413 17.8247C30.625 15.3694 31.2355 12.3764 30.6582 9.38876C30.6582 9.38827 30.6582 9.38827 30.6582 9.38827C29.7812 4.84871 26.1129 1.32882 21.5303 0.629542ZM26.442 16.1639C26.4176 16.1991 26.3951 16.2357 26.3736 16.2728C24.7397 18.9167 23.6087 22.5391 23.3372 25.8656H16.227V23.5714C16.227 22.2451 15.1478 21.1659 13.8206 21.1659H12.4493V18.5221C12.4493 17.2475 11.4521 16.1927 10.1795 16.12L9.36888 16.0741L10.5624 13.418C11.1718 12.437 11.6035 11.2991 11.8808 9.94398C12.7452 5.72871 16.7925 2.93934 21.0771 3.59565C24.3568 4.09571 27.0846 6.71223 27.7126 9.95716C28.1385 12.1649 27.6872 14.3693 26.442 16.1639ZM4.84497 23.4015C4.84497 26.102 7.04248 28.2995 9.74298 28.2995C10.5712 28.2995 11.2431 27.6275 11.2431 26.7993C11.2431 25.9711 10.5712 25.2992 9.74298 25.2992C8.69696 25.2992 7.84527 24.4475 7.84527 23.4015C7.84527 22.5733 7.17333 21.9013 6.34515 21.9013C5.5169 21.9013 4.84497 22.5733 4.84497 23.4015Z"
+                        fill="#F1BF5A"
+                      />
+                      <path
+                        d="M3.14447 23.2305C2.31628 23.2305 1.64429 23.9025 1.64429 24.7306C1.64429 28.4634 4.68079 31.4999 8.4126 31.4999C9.24085 31.4999 9.91278 30.828 9.91278 29.9998C9.91278 29.1716 9.24084 28.4996 8.4126 28.4996C6.33527 28.4996 4.64466 26.809 4.64466 24.7307C4.64465 23.9025 3.97271 23.2305 3.14447 23.2305Z"
+                        fill="#F1BF5A"
+                      />
+                    </svg>
+                    <p>Academic Courses</p>
+                  </div>
+                  <div class="banner_list-item">
+                    <svg
+                      width="33"
+                      height="32"
+                      viewBox="0 0 33 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_1_3301)">
+                        <path
+                          d="M31.6548 9.2041C31.6548 7.22461 30.0449 5.61426 28.0659 5.61426H24.3848V5.13379C24.3848 2.5791 22.3062 0.5 19.751 0.5H12.7637C10.2085 0.5 8.12988 2.5791 8.12988 5.13379V5.61426H4.44873C2.46973 5.61426 0.859863 7.22461 0.859863 9.2041V10.831C0.859863 12.9765 1.6322 14.9437 2.91113 16.4736V25.8213C2.91113 28.9521 5.45849 31.5 8.58984 31.5H23.9248C27.0562 31.5 29.6035 28.9521 29.6035 25.8213V16.4736C30.8824 14.9437 31.6548 12.9765 31.6548 10.831V9.2041ZM11.1299 5.13379C11.1299 4.2334 11.8628 3.5 12.7637 3.5H19.751C20.6519 3.5 21.3848 4.2334 21.3848 5.13379V5.61426H11.1299V5.13379ZM3.85986 9.2041C3.85986 8.8789 4.12402 8.61426 4.44873 8.61426H28.0659C28.3906 8.61426 28.6548 8.87891 28.6548 9.2041V10.831C28.6548 12.3829 28.0399 13.7911 27.0456 14.8346C27.0422 14.8379 27.0393 14.8418 27.036 14.8452C25.9772 15.9509 24.4907 16.6436 22.8428 16.6436H22.1035V16.2334C22.1035 15.4053 21.4321 14.7334 20.6035 14.7334C19.7749 14.7334 19.1035 15.4053 19.1035 16.2334V16.6436H13.4111V16.2334C13.4111 15.4053 12.7398 14.7334 11.9111 14.7334C11.0825 14.7334 10.4111 15.4053 10.4111 16.2334V16.6436H9.67187C8.02398 16.6436 6.53741 15.9509 5.47869 14.8452C5.47533 14.8418 5.4724 14.838 5.46905 14.8346C4.47479 13.7911 3.85986 12.3829 3.85986 10.8311V9.2041ZM23.9248 28.5H8.58984C7.11279 28.5 5.91113 27.2978 5.91113 25.8213V18.7888C7.05359 19.3311 8.32544 19.6436 9.67187 19.6436H10.4111V20.0537C10.4111 20.8819 11.0825 21.5537 11.9111 21.5537C12.7397 21.5537 13.4111 20.8818 13.4111 20.0537V19.6436H19.1035V20.0537C19.1035 20.8819 19.7749 21.5537 20.6035 21.5537C21.4321 21.5537 22.1035 20.8818 22.1035 20.0537V19.6436H22.8428C24.1892 19.6436 25.4611 19.3311 26.6035 18.7888V25.8213C26.6035 27.2978 25.4019 28.5 23.9248 28.5Z"
+                          fill="#F4876B"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1_3301">
+                          <rect
+                            width="32"
+                            height="32"
+                            fill="white"
+                            transform="translate(0.257324)"
+                          />
+                        </clipPath>
+                      </defs>
+                    </svg>
+
+                    <p>Project Internship</p>
+                  </div>
+                  <div class="banner_list-item">
+                    <svg
+                      width="29"
+                      height="28"
+                      viewBox="0 0 29 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.2573 2V1C15.2573 0.734783 15.152 0.48043 14.9644 0.292893C14.7769 0.105357 14.5225 0 14.2573 0C13.9921 0 13.7378 0.105357 13.5502 0.292893C13.3627 0.48043 13.2573 0.734783 13.2573 1V2C13.2573 2.26522 13.3627 2.51957 13.5502 2.70711C13.7378 2.89464 13.9921 3 14.2573 3C14.5225 3 14.7769 2.89464 14.9644 2.70711C15.152 2.51957 15.2573 2.26522 15.2573 2ZM5.76732 4.1C5.57602 3.93617 5.32995 3.85057 5.07827 3.86029C4.82659 3.87001 4.58786 3.97434 4.40976 4.15244C4.23167 4.33053 4.12733 4.56927 4.11761 4.82095C4.10789 5.07262 4.1935 5.3187 4.35732 5.51L5.06732 6.22C5.25863 6.38383 5.5047 6.46943 5.75638 6.45971C6.00805 6.44999 6.24679 6.34566 6.42489 6.16756C6.60298 5.98947 6.70731 5.75073 6.71704 5.49905C6.72676 5.24738 6.64115 5.0013 6.47732 4.81L5.76732 4.1ZM2.25732 15C2.52254 15 2.77689 14.8946 2.96443 14.7071C3.15197 14.5196 3.25732 14.2652 3.25732 14C3.25732 13.7348 3.15197 13.4804 2.96443 13.2929C2.77689 13.1054 2.52254 13 2.25732 13H1.25732C0.992108 13 0.737754 13.1054 0.550217 13.2929C0.362681 13.4804 0.257324 13.7348 0.257324 14C0.257324 14.2652 0.362681 14.5196 0.550217 14.7071C0.737754 14.8946 0.992108 15 1.25732 15H2.25732ZM4.35732 23.9C4.54469 24.0862 4.79814 24.1908 5.06232 24.1908C5.32651 24.1908 5.57996 24.0862 5.76732 23.9L6.47732 23.19C6.64115 22.9987 6.72676 22.7526 6.71704 22.5009C6.70731 22.2493 6.60298 22.0105 6.42489 21.8324C6.24679 21.6543 6.00805 21.55 5.75638 21.5403C5.5047 21.5306 5.25863 21.6162 5.06732 21.78L4.35732 22.49C4.17107 22.6774 4.06653 22.9308 4.06653 23.195C4.06653 23.4592 4.17107 23.7126 4.35732 23.9ZM23.4473 21.78C23.256 21.6162 23.0099 21.5306 22.7583 21.5403C22.5066 21.55 22.2679 21.6543 22.0898 21.8324C21.9117 22.0105 21.8073 22.2493 21.7976 22.5009C21.7879 22.7526 21.8735 22.9987 22.0373 23.19L22.7473 23.9C22.9386 24.0638 23.1847 24.1494 23.4364 24.1397C23.6881 24.13 23.9268 24.0257 24.1049 23.8476C24.283 23.6695 24.3873 23.4307 24.397 23.1791C24.4068 22.9274 24.3211 22.6813 24.1573 22.49L23.4473 21.78ZM27.2573 13H26.2573C25.9921 13 25.7378 13.1054 25.5502 13.2929C25.3627 13.4804 25.2573 13.7348 25.2573 14C25.2573 14.2652 25.3627 14.5196 25.5502 14.7071C25.7378 14.8946 25.9921 15 26.2573 15H27.2573C27.5225 15 27.7769 14.8946 27.9644 14.7071C28.152 14.5196 28.2573 14.2652 28.2573 14C28.2573 13.7348 28.152 13.4804 27.9644 13.2929C27.7769 13.1054 27.5225 13 27.2573 13ZM24.1573 4.1C23.97 3.91375 23.7165 3.80921 23.4523 3.80921C23.1881 3.80921 22.9347 3.91375 22.7473 4.1L22.0373 4.81C21.9326 4.89965 21.8476 5.00996 21.7876 5.13403C21.7276 5.25809 21.6938 5.39323 21.6885 5.53095C21.6832 5.66867 21.7064 5.806 21.7567 5.93432C21.807 6.06265 21.8832 6.1792 21.9807 6.27665C22.0781 6.3741 22.1947 6.45036 22.323 6.50064C22.4513 6.55091 22.5887 6.57412 22.7264 6.5688C22.8641 6.56348 22.9992 6.52975 23.1233 6.46973C23.2474 6.4097 23.3577 6.32468 23.4473 6.22L24.1573 5.51C24.3436 5.32264 24.4481 5.06919 24.4481 4.805C24.4481 4.54081 24.3436 4.28736 24.1573 4.1ZM5.25732 14C5.25951 15.4778 5.62558 16.9324 6.3232 18.2352C7.02083 19.538 8.02853 20.649 9.25732 21.47V27C9.25732 27.2652 9.36268 27.5196 9.55022 27.7071C9.73775 27.8946 9.99211 28 10.2573 28H18.2573C18.5225 28 18.7769 27.8946 18.9644 27.7071C19.152 27.5196 19.2573 27.2652 19.2573 27V21.47C20.5506 20.6059 21.5979 19.4213 22.297 18.0318C22.9961 16.6423 23.3232 15.0954 23.2463 13.5419C23.1694 11.9883 22.6912 10.4812 21.8584 9.16757C21.0255 7.85391 19.8664 6.77853 18.4941 6.0463C17.1218 5.31408 15.5831 4.95001 14.0282 4.98961C12.4732 5.02921 10.9551 5.47112 9.62186 6.27225C8.2886 7.07338 7.18573 8.20637 6.42081 9.56073C5.65588 10.9151 5.25502 12.4446 5.25732 14ZM11.2573 26V24H17.2573V26H11.2573ZM14.2573 7C15.7976 7.00083 17.2945 7.50964 18.5163 8.44758C19.738 9.38553 20.6163 10.7002 21.015 12.188C21.4137 13.6757 21.3106 15.2534 20.7216 16.6766C20.1326 18.0998 19.0907 19.289 17.7573 20.06C17.6047 20.1481 17.4781 20.275 17.3903 20.4277C17.3025 20.5805 17.2566 20.7538 17.2573 20.93V22H15.2573V16H17.2573C17.5225 16 17.7769 15.8946 17.9644 15.7071C18.152 15.5196 18.2573 15.2652 18.2573 15C18.2573 14.7348 18.152 14.4804 17.9644 14.2929C17.7769 14.1054 17.5225 14 17.2573 14H11.2573C10.9921 14 10.7378 14.1054 10.5502 14.2929C10.3627 14.4804 10.2573 14.7348 10.2573 15C10.2573 15.2652 10.3627 15.5196 10.5502 15.7071C10.7378 15.8946 10.9921 16 11.2573 16H13.2573V22H11.2573V20.92C11.258 20.7438 11.2121 20.5705 11.1243 20.4177C11.0365 20.265 10.9099 20.1381 10.7573 20.05C9.42885 19.2769 8.39177 18.088 7.80619 16.6668C7.2206 15.2457 7.11905 13.6713 7.51722 12.1867C7.91539 10.7021 8.79114 9.38977 10.0093 8.45238C11.2274 7.51499 12.7203 7.0046 14.2573 7Z"
+                        fill="#B4708D"
+                      />
+                    </svg>
+
+                    <p>Skill Development</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="banner_shap">
+          <img src="./images/banner_shap.svg" class="w-100 h-100" />
+        </div>
+      </section>
+      <section class="partners">
+        <div class="container">
+          <div class="partner_component">
+            <div class="partner_heading">
+              <p class="">
+                Our
+                <span class="text-blue font-700">Placement Partners</span>
+              </p>
+            </div>
+            <div class="logos">
+              <div class="logo_items">
+                <% if (PlacementImages && PlacementImages.length > 0) { %> <%
+                PlacementImages.forEach(image => { %>
+                <img
+                  class=""
+                  src="<%= image.imagePath %>"
+                  alt="Placement Partner"
+                />
+                <% }); %> <% } else { %>
+                <p>No placement partner images uploaded yet.</p>
+                <% } %>
+              </div>
+              <div class="logo_items">
+                <% if (PlacementImages && PlacementImages.length > 0) { %> <%
+                PlacementImages.forEach(image => { %>
+                <img
+                  class=""
+                  src="<%= image.imagePath %>"
+                  alt="Placement Partner"
+                />
+                <% }); %> <% } else { %>
+                <p>No placement partner images uploaded yet.</p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="choose section_space">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-11">
+              <div class="why_component">
+                <div class="section_heading"><%- whyChooseUs %></div>
+                <div class="choose_grid">
+                  <div class="row">
+                    <div class="col-xl-6">
+                      <div class="choose_im-wrapper">
+                        <div class="video_wrapper">
+                          <iframe
+                            width="560"
+                            height="520"
+                            class="iframe-video-tag"
+                            src="<%- homeYoutubeLink %>"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+
+                        <!-- <img src="./images/& AspectRatioBlock.svg" alt="Why Choose Us" class="w-100 h-100"> -->
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="choose_right mt-lg-xl">
+                        <p class="text-center"><%- contentBesideYoutube %></p>
+                        <div class="home_testimonial">
+                          <div class="home_testimonial-item">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <div class="testimonial_im">
+                                  <img
+                                    src="./images/review/review_2.jfif"
+                                    class="w-100 h-100"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-10">
+                                <div class="testimonial_content">
+                                  <p>
+                                    "I completed a Graphic Designing and Ui/Ux
+                                    Design course at this coaching center, and
+                                    the experience was enjoyable. The
+                                    instructors, who are industry experts,
+                                    taught practical knowledge alongside
+                                    theoretical concepts. "
+                                  </p>
+                                  <div class="review_home-footer d-flex">
+                                    <h5>
+                                      Juhi Seghal -
+                                      <span class="text-blue"
+                                        >Graphic & UI/UX
+                                      </span>
+                                    </h5>
+                                    <div class="rating-star">
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="home_testimonial-item">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <div class="testimonial_im">
+                                  <img
+                                    src="./images/review/review_1.jfif"
+                                    class="w-100 h-100"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-10">
+                                <div class="testimonial_content">
+                                  <p>
+                                    "The Digital Marketing course at this
+                                    coaching center is fantastic. It provided me
+                                    with all the necessary knowledge and skills
+                                    to excel in the field of digital marketing.
+                                    "
+                                  </p>
+                                  <div class="review_home-footer d-flex">
+                                    <h5>
+                                      Geetansha -
+                                      <span class="text-blue">
+                                        Digital Marketing</span
+                                      >
+                                    </h5>
+                                    <div class="rating-star">
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                      <img src="./images/rating_star.svg" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="programs is_home section_space">
+        <div class="container">
+          <div class="program_component">
+            <div class="section_heading is_para"><%- ourEventsContent %></div>
+            <div class="home-program_tab">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    id="all-course-tab"
+                    data-toggle="tab"
+                    href="#all-course"
+                    role="tab"
+                    aria-controls="all-course"
+                    aria-selected="true"
+                    >All Courses</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="Computer-Basics-tab"
+                    data-toggle="tab"
+                    href="#Computer-Basics"
+                    role="tab"
+                    aria-controls="Computer-Basics"
+                    aria-selected="false"
+                    >Computer Basics</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="Govt-tab"
+                    data-toggle="tab"
+                    href="#Govt"
+                    role="tab"
+                    aria-controls="Govt"
+                    aria-selected="false"
+                    >Govt. Typing Exams</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="design-tab"
+                    data-toggle="tab"
+                    href="#design"
+                    role="tab"
+                    aria-controls="design"
+                    aria-selected="false"
+                    >Design Courses</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="development-tab"
+                    data-toggle="tab"
+                    href="#development"
+                    role="tab"
+                    aria-controls="development"
+                    aria-selected="false"
+                    >Development</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="digital-tab"
+                    data-toggle="tab"
+                    href="#digital"
+                    role="tab"
+                    aria-controls="digital"
+                    aria-selected="false"
+                    >Digital Marketing</a
+                  >
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="all-course"
+                  role="tabpanel"
+                  aria-labelledby="all-course-tab"
+                >
+                  <div class="home_program-content">
+                    <div class="row">
+                      <% courses.forEach(course => { %>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="program_item">
+                          <div class="program_im-wrapper">
+                            <img
+                              src="<%= course.courseImage %>"
+                              class="w-100 h-100"
+                              alt="<%= course.name %>"
+                            />
+                          </div>
+                          <div class="program_content">
+                            <div class="course_heading">
+                              <h4 class="course_heading"><%= course.name %></h4>
+                            </div>
+                            <div class="program_middle">
+                              <ul class="course_liting">
+                                <% course.topics.slice(0, 3).forEach(topic=> {
+                                %>
+
+                                <li><%= topic.name %></li>
+                                <% }) %>
+                              </ul>
+                            </div>
+                            <div class="course_footer">
+                              <div class="program_rating">
+                                <div class="program_rating-left">
+                                  <p><%= course.rating %></p>
+                                  <!-- You can optionally render stars dynamically -->
+                                  <svg width="92" height="17">
+                                    <svg
+                                      width="92"
+                                      height="17"
+                                      viewBox="0 0 92 17"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M7.52447 1.69399C7.67415 1.23334 8.32585 1.23334 8.47553 1.69399L9.68386 5.41284C9.75079 5.61885 9.94277 5.75833 10.1594 5.75833H14.0696C14.554 5.75833 14.7554 6.37814 14.3635 6.66284L11.2001 8.96122C11.0248 9.08854 10.9515 9.31422 11.0184 9.52023L12.2268 13.2391C12.3764 13.6997 11.8492 14.0828 11.4573 13.7981L8.29389 11.4997C8.11865 11.3724 7.88135 11.3724 7.70611 11.4997L4.54267 13.7981C4.15081 14.0828 3.62357 13.6997 3.77325 13.2391L4.98157 9.52023C5.04851 9.31422 4.97518 9.08854 4.79994 8.96122L1.6365 6.66284C1.24464 6.37814 1.44603 5.75833 1.93039 5.75833H5.84062C6.05723 5.75833 6.24921 5.61885 6.31614 5.41284L7.52447 1.69399Z"
+                                        fill="#FF9B26"
+                                      />
+                                      <path
+                                        d="M26.5245 1.69399C26.6741 1.23334 27.3259 1.23334 27.4755 1.69399L28.6839 5.41284C28.7508 5.61885 28.9428 5.75833 29.1594 5.75833H33.0696C33.554 5.75833 33.7554 6.37814 33.3635 6.66284L30.2001 8.96122C30.0248 9.08854 29.9515 9.31422 30.0184 9.52023L31.2268 13.2391C31.3764 13.6997 30.8492 14.0828 30.4573 13.7981L27.2939 11.4997C27.1186 11.3724 26.8814 11.3724 26.7061 11.4997L23.5427 13.7981C23.1508 14.0828 22.6236 13.6997 22.7732 13.2391L23.9816 9.52023C24.0485 9.31422 23.9752 9.08854 23.7999 8.96122L20.6365 6.66284C20.2446 6.37814 20.446 5.75833 20.9304 5.75833H24.8406C25.0572 5.75833 25.2492 5.61885 25.3161 5.41284L26.5245 1.69399Z"
+                                        fill="#FF9B26"
+                                      />
+                                      <path
+                                        d="M45.5245 1.69399C45.6741 1.23334 46.3259 1.23334 46.4755 1.69399L47.6839 5.41284C47.7508 5.61885 47.9428 5.75833 48.1594 5.75833H52.0696C52.554 5.75833 52.7554 6.37814 52.3635 6.66284L49.2001 8.96122C49.0248 9.08854 48.9515 9.31422 49.0184 9.52023L50.2268 13.2391C50.3764 13.6997 49.8492 14.0828 49.4573 13.7981L46.2939 11.4997C46.1186 11.3724 45.8814 11.3724 45.7061 11.4997L42.5427 13.7981C42.1508 14.0828 41.6236 13.6997 41.7732 13.2391L42.9816 9.52023C43.0485 9.31422 42.9752 9.08854 42.7999 8.96122L39.6365 6.66284C39.2446 6.37814 39.446 5.75833 39.9304 5.75833H43.8406C44.0572 5.75833 44.2492 5.61885 44.3161 5.41284L45.5245 1.69399Z"
+                                        fill="#FF9B26"
+                                      />
+                                      <path
+                                        d="M64.5245 1.69399C64.6741 1.23334 65.3259 1.23334 65.4755 1.69399L66.6839 5.41284C66.7508 5.61885 66.9428 5.75833 67.1594 5.75833H71.0696C71.554 5.75833 71.7554 6.37814 71.3635 6.66284L68.2001 8.96122C68.0248 9.08854 67.9515 9.31422 68.0184 9.52023L69.2268 13.2391C69.3764 13.6997 68.8492 14.0828 68.4573 13.7981L65.2939 11.4997C65.1186 11.3724 64.8814 11.3724 64.7061 11.4997L61.5427 13.7981C61.1508 14.0828 60.6236 13.6997 60.7732 13.2391L61.9816 9.52023C62.0485 9.31422 61.9752 9.08854 61.7999 8.96122L58.6365 6.66284C58.2446 6.37814 58.446 5.75833 58.9304 5.75833H62.8406C63.0572 5.75833 63.2492 5.61885 63.3161 5.41284L64.5245 1.69399Z"
+                                        fill="#FF9B26"
+                                      />
+                                      <path
+                                        d="M83.5245 1.69399C83.6741 1.23334 84.3259 1.23334 84.4755 1.69399L85.6839 5.41284C85.7508 5.61885 85.9428 5.75833 86.1594 5.75833H90.0696C90.554 5.75833 90.7554 6.37814 90.3635 6.66284L87.2001 8.96122C87.0248 9.08854 86.9515 9.31422 87.0184 9.52023L88.2268 13.2391C88.3764 13.6997 87.8492 14.0828 87.4573 13.7981L84.2939 11.4997C84.1186 11.3724 83.8814 11.3724 83.7061 11.4997L80.5427 13.7981C80.1508 14.0828 79.6236 13.6997 79.7732 13.2391L80.9816 9.52023C81.0485 9.31422 80.9752 9.08854 80.7999 8.96122L77.6365 6.66284C77.2446 6.37814 77.446 5.75833 77.9304 5.75833H81.8406C82.0572 5.75833 82.2492 5.61885 82.3161 5.41284L83.5245 1.69399Z"
+                                        fill="#FF9B26"
+                                      />
+                                    </svg>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="btn_grp">
+                                <a
+                                  href="/ourCourses/<%= course._id %>"
+                                  class="btn-view"
+                                >
+                                  View Course
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Development Tab Pane -->
+                <div
+                  class="tab-pane fade"
+                  id="development"
+                  role="tabpanel"
+                  aria-labelledby="development-tab"
+                >
+                  <div class="home_program-content">
+                    <div class="row">
+                      <% if (groupedCourses["Development"]) { %> <%
+                      groupedCourses["Development"].forEach(course => { %>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="program_item">
+                          <div class="program_im-wrapper">
+                            <img
+                              src="<%= course.courseImage %>"
+                              class="w-100 h-100"
+                            />
+                          </div>
+                          <div class="program_content">
+                            <div class="course_heading">
+                              <p class="program_category text-blue">
+                                <%= course.category %>
+                              </p>
+                              <h4 class="course_heading"><%= course.name %></h4>
+                            </div>
+                            <div class="program_middle">
+                              <ul class="course_liting">
+                                <% course.topics.slice(0, 3).forEach(topic=> {
+                                %>
+
+                                <li><%= topic.name %></li>
+                                <% }); %>
+                              </ul>
+                            </div>
+                            <div class="course_footer">
+                              <div class="program_rating">
+                                <div class="program_rating-left">
+                                  <p><%= course.rating %></p>
+                                  <svg
+                                    width="92"
+                                    height="17"
+                                    viewBox="0 0 92 17"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M7.52447 1.69399C7.67415 1.23334 8.32585 1.23334 8.47553 1.69399L9.68386 5.41284C9.75079 5.61885 9.94277 5.75833 10.1594 5.75833H14.0696C14.554 5.75833 14.7554 6.37814 14.3635 6.66284L11.2001 8.96122C11.0248 9.08854 10.9515 9.31422 11.0184 9.52023L12.2268 13.2391C12.3764 13.6997 11.8492 14.0828 11.4573 13.7981L8.29389 11.4997C8.11865 11.3724 7.88135 11.3724 7.70611 11.4997L4.54267 13.7981C4.15081 14.0828 3.62357 13.6997 3.77325 13.2391L4.98157 9.52023C5.04851 9.31422 4.97518 9.08854 4.79994 8.96122L1.6365 6.66284C1.24464 6.37814 1.44603 5.75833 1.93039 5.75833H5.84062C6.05723 5.75833 6.24921 5.61885 6.31614 5.41284L7.52447 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M26.5245 1.69399C26.6741 1.23334 27.3259 1.23334 27.4755 1.69399L28.6839 5.41284C28.7508 5.61885 28.9428 5.75833 29.1594 5.75833H33.0696C33.554 5.75833 33.7554 6.37814 33.3635 6.66284L30.2001 8.96122C30.0248 9.08854 29.9515 9.31422 30.0184 9.52023L31.2268 13.2391C31.3764 13.6997 30.8492 14.0828 30.4573 13.7981L27.2939 11.4997C27.1186 11.3724 26.8814 11.3724 26.7061 11.4997L23.5427 13.7981C23.1508 14.0828 22.6236 13.6997 22.7732 13.2391L23.9816 9.52023C24.0485 9.31422 23.9752 9.08854 23.7999 8.96122L20.6365 6.66284C20.2446 6.37814 20.446 5.75833 20.9304 5.75833H24.8406C25.0572 5.75833 25.2492 5.61885 25.3161 5.41284L26.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M45.5245 1.69399C45.6741 1.23334 46.3259 1.23334 46.4755 1.69399L47.6839 5.41284C47.7508 5.61885 47.9428 5.75833 48.1594 5.75833H52.0696C52.554 5.75833 52.7554 6.37814 52.3635 6.66284L49.2001 8.96122C49.0248 9.08854 48.9515 9.31422 49.0184 9.52023L50.2268 13.2391C50.3764 13.6997 49.8492 14.0828 49.4573 13.7981L46.2939 11.4997C46.1186 11.3724 45.8814 11.3724 45.7061 11.4997L42.5427 13.7981C42.1508 14.0828 41.6236 13.6997 41.7732 13.2391L42.9816 9.52023C43.0485 9.31422 42.9752 9.08854 42.7999 8.96122L39.6365 6.66284C39.2446 6.37814 39.446 5.75833 39.9304 5.75833H43.8406C44.0572 5.75833 44.2492 5.61885 44.3161 5.41284L45.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M64.5245 1.69399C64.6741 1.23334 65.3259 1.23334 65.4755 1.69399L66.6839 5.41284C66.7508 5.61885 66.9428 5.75833 67.1594 5.75833H71.0696C71.554 5.75833 71.7554 6.37814 71.3635 6.66284L68.2001 8.96122C68.0248 9.08854 67.9515 9.31422 68.0184 9.52023L69.2268 13.2391C69.3764 13.6997 68.8492 14.0828 68.4573 13.7981L65.2939 11.4997C65.1186 11.3724 64.8814 11.3724 64.7061 11.4997L61.5427 13.7981C61.1508 14.0828 60.6236 13.6997 60.7732 13.2391L61.9816 9.52023C62.0485 9.31422 61.9752 9.08854 61.7999 8.96122L58.6365 6.66284C58.2446 6.37814 58.446 5.75833 58.9304 5.75833H62.8406C63.0572 5.75833 63.2492 5.61885 63.3161 5.41284L64.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M83.5245 1.69399C83.6741 1.23334 84.3259 1.23334 84.4755 1.69399L85.6839 5.41284C85.7508 5.61885 85.9428 5.75833 86.1594 5.75833H90.0696C90.554 5.75833 90.7554 6.37814 90.3635 6.66284L87.2001 8.96122C87.0248 9.08854 86.9515 9.31422 87.0184 9.52023L88.2268 13.2391C88.3764 13.6997 87.8492 14.0828 87.4573 13.7981L84.2939 11.4997C84.1186 11.3724 83.8814 11.3724 83.7061 11.4997L80.5427 13.7981C80.1508 14.0828 79.6236 13.6997 79.7732 13.2391L80.9816 9.52023C81.0485 9.31422 80.9752 9.08854 80.7999 8.96122L77.6365 6.66284C77.2446 6.37814 77.446 5.75833 77.9304 5.75833H81.8406C82.0572 5.75833 82.2492 5.61885 82.3161 5.41284L83.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="btn_grp">
+                                <a href="/ourCourses" class="btn-view"
+                                  >View Course</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <% }); %> <% } else { %>
+                      <p class="text-muted">
+                        No courses found in Development category.
+                      </p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <!-- Computer-Basics Tab Pane -->
+                <div
+                  class="tab-pane fade"
+                  id="Computer-Basics"
+                  role="tabpanel"
+                  aria-labelledby="Computer-Basics-tab"
+                >
+                  <div class="home_program-content">
+                    <div class="row">
+                      <% if (groupedCourses["Computer Basics"]) { %> <%
+                      groupedCourses["Computer Basics"].forEach(course => { %>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="program_item">
+                          <div class="program_im-wrapper">
+                            <img
+                              src="<%= course.courseImage %>"
+                              class="w-100 h-100"
+                            />
+                          </div>
+                          <div class="program_content">
+                            <div class="course_heading">
+                              <p class="program_category text-blue">
+                                <%= course.category %>
+                              </p>
+                              <h4 class="course_heading"><%= course.name %></h4>
+                            </div>
+                            <div class="program_middle">
+                              <ul class="course_liting">
+                                <% course.topics.slice(0, 3).forEach(topic=> {
+                                %>
+
+                                <li><%= topic.name %></li>
+                                <% }); %>
+                              </ul>
+                            </div>
+                            <div class="course_footer">
+                              <div class="program_rating">
+                                <div class="program_rating-left">
+                                  <p><%= course.rating %></p>
+                                  <svg
+                                    width="92"
+                                    height="17"
+                                    viewBox="0 0 92 17"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M7.52447 1.69399C7.67415 1.23334 8.32585 1.23334 8.47553 1.69399L9.68386 5.41284C9.75079 5.61885 9.94277 5.75833 10.1594 5.75833H14.0696C14.554 5.75833 14.7554 6.37814 14.3635 6.66284L11.2001 8.96122C11.0248 9.08854 10.9515 9.31422 11.0184 9.52023L12.2268 13.2391C12.3764 13.6997 11.8492 14.0828 11.4573 13.7981L8.29389 11.4997C8.11865 11.3724 7.88135 11.3724 7.70611 11.4997L4.54267 13.7981C4.15081 14.0828 3.62357 13.6997 3.77325 13.2391L4.98157 9.52023C5.04851 9.31422 4.97518 9.08854 4.79994 8.96122L1.6365 6.66284C1.24464 6.37814 1.44603 5.75833 1.93039 5.75833H5.84062C6.05723 5.75833 6.24921 5.61885 6.31614 5.41284L7.52447 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M26.5245 1.69399C26.6741 1.23334 27.3259 1.23334 27.4755 1.69399L28.6839 5.41284C28.7508 5.61885 28.9428 5.75833 29.1594 5.75833H33.0696C33.554 5.75833 33.7554 6.37814 33.3635 6.66284L30.2001 8.96122C30.0248 9.08854 29.9515 9.31422 30.0184 9.52023L31.2268 13.2391C31.3764 13.6997 30.8492 14.0828 30.4573 13.7981L27.2939 11.4997C27.1186 11.3724 26.8814 11.3724 26.7061 11.4997L23.5427 13.7981C23.1508 14.0828 22.6236 13.6997 22.7732 13.2391L23.9816 9.52023C24.0485 9.31422 23.9752 9.08854 23.7999 8.96122L20.6365 6.66284C20.2446 6.37814 20.446 5.75833 20.9304 5.75833H24.8406C25.0572 5.75833 25.2492 5.61885 25.3161 5.41284L26.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M45.5245 1.69399C45.6741 1.23334 46.3259 1.23334 46.4755 1.69399L47.6839 5.41284C47.7508 5.61885 47.9428 5.75833 48.1594 5.75833H52.0696C52.554 5.75833 52.7554 6.37814 52.3635 6.66284L49.2001 8.96122C49.0248 9.08854 48.9515 9.31422 49.0184 9.52023L50.2268 13.2391C50.3764 13.6997 49.8492 14.0828 49.4573 13.7981L46.2939 11.4997C46.1186 11.3724 45.8814 11.3724 45.7061 11.4997L42.5427 13.7981C42.1508 14.0828 41.6236 13.6997 41.7732 13.2391L42.9816 9.52023C43.0485 9.31422 42.9752 9.08854 42.7999 8.96122L39.6365 6.66284C39.2446 6.37814 39.446 5.75833 39.9304 5.75833H43.8406C44.0572 5.75833 44.2492 5.61885 44.3161 5.41284L45.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M64.5245 1.69399C64.6741 1.23334 65.3259 1.23334 65.4755 1.69399L66.6839 5.41284C66.7508 5.61885 66.9428 5.75833 67.1594 5.75833H71.0696C71.554 5.75833 71.7554 6.37814 71.3635 6.66284L68.2001 8.96122C68.0248 9.08854 67.9515 9.31422 68.0184 9.52023L69.2268 13.2391C69.3764 13.6997 68.8492 14.0828 68.4573 13.7981L65.2939 11.4997C65.1186 11.3724 64.8814 11.3724 64.7061 11.4997L61.5427 13.7981C61.1508 14.0828 60.6236 13.6997 60.7732 13.2391L61.9816 9.52023C62.0485 9.31422 61.9752 9.08854 61.7999 8.96122L58.6365 6.66284C58.2446 6.37814 58.446 5.75833 58.9304 5.75833H62.8406C63.0572 5.75833 63.2492 5.61885 63.3161 5.41284L64.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M83.5245 1.69399C83.6741 1.23334 84.3259 1.23334 84.4755 1.69399L85.6839 5.41284C85.7508 5.61885 85.9428 5.75833 86.1594 5.75833H90.0696C90.554 5.75833 90.7554 6.37814 90.3635 6.66284L87.2001 8.96122C87.0248 9.08854 86.9515 9.31422 87.0184 9.52023L88.2268 13.2391C88.3764 13.6997 87.8492 14.0828 87.4573 13.7981L84.2939 11.4997C84.1186 11.3724 83.8814 11.3724 83.7061 11.4997L80.5427 13.7981C80.1508 14.0828 79.6236 13.6997 79.7732 13.2391L80.9816 9.52023C81.0485 9.31422 80.9752 9.08854 80.7999 8.96122L77.6365 6.66284C77.2446 6.37814 77.446 5.75833 77.9304 5.75833H81.8406C82.0572 5.75833 82.2492 5.61885 82.3161 5.41284L83.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="btn_grp">
+                                <a href="/ourCourses" class="btn-view"
+                                  >View Course</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <% }); %> <% } else { %>
+                      <p class="text-muted">
+                        No courses found in Development category.
+                      </p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Design Courses Tab Pane -->
+                <div
+                  class="tab-pane fade"
+                  id="design"
+                  role="tabpanel"
+                  aria-labelledby="design-tab"
+                >
+                  <div class="home_program-content">
+                    <div class="row">
+                      <% if (groupedCourses["Design Courses"]) { %> <%
+                      groupedCourses["Design Courses"].forEach(course => { %>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="program_item">
+                          <div class="program_im-wrapper">
+                            <img
+                              src="<%= course.courseImage %>"
+                              class="w-100 h-100"
+                            />
+                          </div>
+                          <div class="program_content">
+                            <div class="course_heading">
+                              <p class="program_category text-blue">
+                                <%= course.category %>
+                              </p>
+                              <h4 class="course_heading"><%= course.name %></h4>
+                            </div>
+                            <div class="program_middle">
+                              <ul class="course_liting">
+                                <% course.topics.slice(0, 3).forEach(topic=> {
+                                %>
+
+                                <li><%= topic.name %></li>
+                                <% }); %>
+                              </ul>
+                            </div>
+                            <div class="course_footer">
+                              <div class="program_rating">
+                                <div class="program_rating-left">
+                                  <p><%= course.rating %></p>
+                                  <svg
+                                    width="92"
+                                    height="17"
+                                    viewBox="0 0 92 17"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M7.52447 1.69399C7.67415 1.23334 8.32585 1.23334 8.47553 1.69399L9.68386 5.41284C9.75079 5.61885 9.94277 5.75833 10.1594 5.75833H14.0696C14.554 5.75833 14.7554 6.37814 14.3635 6.66284L11.2001 8.96122C11.0248 9.08854 10.9515 9.31422 11.0184 9.52023L12.2268 13.2391C12.3764 13.6997 11.8492 14.0828 11.4573 13.7981L8.29389 11.4997C8.11865 11.3724 7.88135 11.3724 7.70611 11.4997L4.54267 13.7981C4.15081 14.0828 3.62357 13.6997 3.77325 13.2391L4.98157 9.52023C5.04851 9.31422 4.97518 9.08854 4.79994 8.96122L1.6365 6.66284C1.24464 6.37814 1.44603 5.75833 1.93039 5.75833H5.84062C6.05723 5.75833 6.24921 5.61885 6.31614 5.41284L7.52447 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M26.5245 1.69399C26.6741 1.23334 27.3259 1.23334 27.4755 1.69399L28.6839 5.41284C28.7508 5.61885 28.9428 5.75833 29.1594 5.75833H33.0696C33.554 5.75833 33.7554 6.37814 33.3635 6.66284L30.2001 8.96122C30.0248 9.08854 29.9515 9.31422 30.0184 9.52023L31.2268 13.2391C31.3764 13.6997 30.8492 14.0828 30.4573 13.7981L27.2939 11.4997C27.1186 11.3724 26.8814 11.3724 26.7061 11.4997L23.5427 13.7981C23.1508 14.0828 22.6236 13.6997 22.7732 13.2391L23.9816 9.52023C24.0485 9.31422 23.9752 9.08854 23.7999 8.96122L20.6365 6.66284C20.2446 6.37814 20.446 5.75833 20.9304 5.75833H24.8406C25.0572 5.75833 25.2492 5.61885 25.3161 5.41284L26.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M45.5245 1.69399C45.6741 1.23334 46.3259 1.23334 46.4755 1.69399L47.6839 5.41284C47.7508 5.61885 47.9428 5.75833 48.1594 5.75833H52.0696C52.554 5.75833 52.7554 6.37814 52.3635 6.66284L49.2001 8.96122C49.0248 9.08854 48.9515 9.31422 49.0184 9.52023L50.2268 13.2391C50.3764 13.6997 49.8492 14.0828 49.4573 13.7981L46.2939 11.4997C46.1186 11.3724 45.8814 11.3724 45.7061 11.4997L42.5427 13.7981C42.1508 14.0828 41.6236 13.6997 41.7732 13.2391L42.9816 9.52023C43.0485 9.31422 42.9752 9.08854 42.7999 8.96122L39.6365 6.66284C39.2446 6.37814 39.446 5.75833 39.9304 5.75833H43.8406C44.0572 5.75833 44.2492 5.61885 44.3161 5.41284L45.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M64.5245 1.69399C64.6741 1.23334 65.3259 1.23334 65.4755 1.69399L66.6839 5.41284C66.7508 5.61885 66.9428 5.75833 67.1594 5.75833H71.0696C71.554 5.75833 71.7554 6.37814 71.3635 6.66284L68.2001 8.96122C68.0248 9.08854 67.9515 9.31422 68.0184 9.52023L69.2268 13.2391C69.3764 13.6997 68.8492 14.0828 68.4573 13.7981L65.2939 11.4997C65.1186 11.3724 64.8814 11.3724 64.7061 11.4997L61.5427 13.7981C61.1508 14.0828 60.6236 13.6997 60.7732 13.2391L61.9816 9.52023C62.0485 9.31422 61.9752 9.08854 61.7999 8.96122L58.6365 6.66284C58.2446 6.37814 58.446 5.75833 58.9304 5.75833H62.8406C63.0572 5.75833 63.2492 5.61885 63.3161 5.41284L64.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M83.5245 1.69399C83.6741 1.23334 84.3259 1.23334 84.4755 1.69399L85.6839 5.41284C85.7508 5.61885 85.9428 5.75833 86.1594 5.75833H90.0696C90.554 5.75833 90.7554 6.37814 90.3635 6.66284L87.2001 8.96122C87.0248 9.08854 86.9515 9.31422 87.0184 9.52023L88.2268 13.2391C88.3764 13.6997 87.8492 14.0828 87.4573 13.7981L84.2939 11.4997C84.1186 11.3724 83.8814 11.3724 83.7061 11.4997L80.5427 13.7981C80.1508 14.0828 79.6236 13.6997 79.7732 13.2391L80.9816 9.52023C81.0485 9.31422 80.9752 9.08854 80.7999 8.96122L77.6365 6.66284C77.2446 6.37814 77.446 5.75833 77.9304 5.75833H81.8406C82.0572 5.75833 82.2492 5.61885 82.3161 5.41284L83.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="btn_grp">
+                                <a href="/ourCourses" class="btn-view"
+                                  >View Course</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% }); %> <% } else { %>
+                      <p class="text-muted">
+                        No courses found in Design Courses category.
+                      </p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Govt Typing Exams Tab Pane -->
+                <div
+                  class="tab-pane fade"
+                  id="Govt"
+                  role="tabpanel"
+                  aria-labelledby="Govt-tab"
+                >
+                  <div class="home_program-content">
+                    <div class="row">
+                      <% if (groupedCourses["Govt Typing Exams"]) { %> <%
+                      groupedCourses["Govt Typing Exams"].forEach(course => { %>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="program_item">
+                          <div class="program_im-wrapper">
+                            <img
+                              src="<%= course.courseImage %>"
+                              class="w-100 h-100"
+                            />
+                          </div>
+                          <div class="program_content">
+                            <div class="course_heading">
+                              <p class="program_category text-blue">
+                                <%= course.category %>
+                              </p>
+                              <h4 class="course_heading"><%= course.name %></h4>
+                            </div>
+                            <div class="program_middle">
+                              <ul class="course_liting">
+                                <% course.topics.slice(0, 3).forEach(topic=> {
+                                %>
+
+                                <li><%= topic.name %></li>
+                                <% }); %>
+                              </ul>
+                            </div>
+                            <div class="course_footer">
+                              <div class="program_rating">
+                                <div class="program_rating-left">
+                                  <p><%= course.rating %></p>
+                                  <svg
+                                    width="92"
+                                    height="17"
+                                    viewBox="0 0 92 17"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M7.52447 1.69399C7.67415 1.23334 8.32585 1.23334 8.47553 1.69399L9.68386 5.41284C9.75079 5.61885 9.94277 5.75833 10.1594 5.75833H14.0696C14.554 5.75833 14.7554 6.37814 14.3635 6.66284L11.2001 8.96122C11.0248 9.08854 10.9515 9.31422 11.0184 9.52023L12.2268 13.2391C12.3764 13.6997 11.8492 14.0828 11.4573 13.7981L8.29389 11.4997C8.11865 11.3724 7.88135 11.3724 7.70611 11.4997L4.54267 13.7981C4.15081 14.0828 3.62357 13.6997 3.77325 13.2391L4.98157 9.52023C5.04851 9.31422 4.97518 9.08854 4.79994 8.96122L1.6365 6.66284C1.24464 6.37814 1.44603 5.75833 1.93039 5.75833H5.84062C6.05723 5.75833 6.24921 5.61885 6.31614 5.41284L7.52447 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M26.5245 1.69399C26.6741 1.23334 27.3259 1.23334 27.4755 1.69399L28.6839 5.41284C28.7508 5.61885 28.9428 5.75833 29.1594 5.75833H33.0696C33.554 5.75833 33.7554 6.37814 33.3635 6.66284L30.2001 8.96122C30.0248 9.08854 29.9515 9.31422 30.0184 9.52023L31.2268 13.2391C31.3764 13.6997 30.8492 14.0828 30.4573 13.7981L27.2939 11.4997C27.1186 11.3724 26.8814 11.3724 26.7061 11.4997L23.5427 13.7981C23.1508 14.0828 22.6236 13.6997 22.7732 13.2391L23.9816 9.52023C24.0485 9.31422 23.9752 9.08854 23.7999 8.96122L20.6365 6.66284C20.2446 6.37814 20.446 5.75833 20.9304 5.75833H24.8406C25.0572 5.75833 25.2492 5.61885 25.3161 5.41284L26.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M45.5245 1.69399C45.6741 1.23334 46.3259 1.23334 46.4755 1.69399L47.6839 5.41284C47.7508 5.61885 47.9428 5.75833 48.1594 5.75833H52.0696C52.554 5.75833 52.7554 6.37814 52.3635 6.66284L49.2001 8.96122C49.0248 9.08854 48.9515 9.31422 49.0184 9.52023L50.2268 13.2391C50.3764 13.6997 49.8492 14.0828 49.4573 13.7981L46.2939 11.4997C46.1186 11.3724 45.8814 11.3724 45.7061 11.4997L42.5427 13.7981C42.1508 14.0828 41.6236 13.6997 41.7732 13.2391L42.9816 9.52023C43.0485 9.31422 42.9752 9.08854 42.7999 8.96122L39.6365 6.66284C39.2446 6.37814 39.446 5.75833 39.9304 5.75833H43.8406C44.0572 5.75833 44.2492 5.61885 44.3161 5.41284L45.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M64.5245 1.69399C64.6741 1.23334 65.3259 1.23334 65.4755 1.69399L66.6839 5.41284C66.7508 5.61885 66.9428 5.75833 67.1594 5.75833H71.0696C71.554 5.75833 71.7554 6.37814 71.3635 6.66284L68.2001 8.96122C68.0248 9.08854 67.9515 9.31422 68.0184 9.52023L69.2268 13.2391C69.3764 13.6997 68.8492 14.0828 68.4573 13.7981L65.2939 11.4997C65.1186 11.3724 64.8814 11.3724 64.7061 11.4997L61.5427 13.7981C61.1508 14.0828 60.6236 13.6997 60.7732 13.2391L61.9816 9.52023C62.0485 9.31422 61.9752 9.08854 61.7999 8.96122L58.6365 6.66284C58.2446 6.37814 58.446 5.75833 58.9304 5.75833H62.8406C63.0572 5.75833 63.2492 5.61885 63.3161 5.41284L64.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M83.5245 1.69399C83.6741 1.23334 84.3259 1.23334 84.4755 1.69399L85.6839 5.41284C85.7508 5.61885 85.9428 5.75833 86.1594 5.75833H90.0696C90.554 5.75833 90.7554 6.37814 90.3635 6.66284L87.2001 8.96122C87.0248 9.08854 86.9515 9.31422 87.0184 9.52023L88.2268 13.2391C88.3764 13.6997 87.8492 14.0828 87.4573 13.7981L84.2939 11.4997C84.1186 11.3724 83.8814 11.3724 83.7061 11.4997L80.5427 13.7981C80.1508 14.0828 79.6236 13.6997 79.7732 13.2391L80.9816 9.52023C81.0485 9.31422 80.9752 9.08854 80.7999 8.96122L77.6365 6.66284C77.2446 6.37814 77.446 5.75833 77.9304 5.75833H81.8406C82.0572 5.75833 82.2492 5.61885 82.3161 5.41284L83.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="btn_grp">
+                                <a href="/ourCourses" class="btn-view"
+                                  >View Course</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% }); %> <% } else { %>
+                      <p class="text-muted">
+                        No courses found in Govt Typing Exams category.
+                      </p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Govt Typing Exams Tab Pane -->
+                <div
+                  class="tab-pane fade"
+                  id="digital"
+                  role="tabpanel"
+                  aria-labelledby="digital-tab"
+                >
+                  <div class="home_program-content">
+                    <div class="row">
+                      <% if (groupedCourses["Digital Marketing"]) { %> <%
+                      groupedCourses["Digital Marketing"].forEach(course => { %>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="program_item">
+                          <div class="program_im-wrapper">
+                            <img
+                              src="<%= course.courseImage %>"
+                              class="w-100 h-100"
+                            />
+                          </div>
+                          <div class="program_content">
+                            <div class="course_heading">
+                              <p class="program_category text-blue">
+                                <%= course.category %>
+                              </p>
+                              <h4 class="course_heading"><%= course.name %></h4>
+                            </div>
+                            <div class="program_middle">
+                              <ul class="course_liting">
+                                <% course.topics.slice(0, 3).forEach(topic=> {
+                                %>
+
+                                <li><%= topic.name %></li>
+                                <% }); %>
+                              </ul>
+                            </div>
+                            <div class="course_footer">
+                              <div class="program_rating">
+                                <div class="program_rating-left">
+                                  <p><%= course.rating %></p>
+                                  <svg
+                                    width="92"
+                                    height="17"
+                                    viewBox="0 0 92 17"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M7.52447 1.69399C7.67415 1.23334 8.32585 1.23334 8.47553 1.69399L9.68386 5.41284C9.75079 5.61885 9.94277 5.75833 10.1594 5.75833H14.0696C14.554 5.75833 14.7554 6.37814 14.3635 6.66284L11.2001 8.96122C11.0248 9.08854 10.9515 9.31422 11.0184 9.52023L12.2268 13.2391C12.3764 13.6997 11.8492 14.0828 11.4573 13.7981L8.29389 11.4997C8.11865 11.3724 7.88135 11.3724 7.70611 11.4997L4.54267 13.7981C4.15081 14.0828 3.62357 13.6997 3.77325 13.2391L4.98157 9.52023C5.04851 9.31422 4.97518 9.08854 4.79994 8.96122L1.6365 6.66284C1.24464 6.37814 1.44603 5.75833 1.93039 5.75833H5.84062C6.05723 5.75833 6.24921 5.61885 6.31614 5.41284L7.52447 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M26.5245 1.69399C26.6741 1.23334 27.3259 1.23334 27.4755 1.69399L28.6839 5.41284C28.7508 5.61885 28.9428 5.75833 29.1594 5.75833H33.0696C33.554 5.75833 33.7554 6.37814 33.3635 6.66284L30.2001 8.96122C30.0248 9.08854 29.9515 9.31422 30.0184 9.52023L31.2268 13.2391C31.3764 13.6997 30.8492 14.0828 30.4573 13.7981L27.2939 11.4997C27.1186 11.3724 26.8814 11.3724 26.7061 11.4997L23.5427 13.7981C23.1508 14.0828 22.6236 13.6997 22.7732 13.2391L23.9816 9.52023C24.0485 9.31422 23.9752 9.08854 23.7999 8.96122L20.6365 6.66284C20.2446 6.37814 20.446 5.75833 20.9304 5.75833H24.8406C25.0572 5.75833 25.2492 5.61885 25.3161 5.41284L26.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M45.5245 1.69399C45.6741 1.23334 46.3259 1.23334 46.4755 1.69399L47.6839 5.41284C47.7508 5.61885 47.9428 5.75833 48.1594 5.75833H52.0696C52.554 5.75833 52.7554 6.37814 52.3635 6.66284L49.2001 8.96122C49.0248 9.08854 48.9515 9.31422 49.0184 9.52023L50.2268 13.2391C50.3764 13.6997 49.8492 14.0828 49.4573 13.7981L46.2939 11.4997C46.1186 11.3724 45.8814 11.3724 45.7061 11.4997L42.5427 13.7981C42.1508 14.0828 41.6236 13.6997 41.7732 13.2391L42.9816 9.52023C43.0485 9.31422 42.9752 9.08854 42.7999 8.96122L39.6365 6.66284C39.2446 6.37814 39.446 5.75833 39.9304 5.75833H43.8406C44.0572 5.75833 44.2492 5.61885 44.3161 5.41284L45.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M64.5245 1.69399C64.6741 1.23334 65.3259 1.23334 65.4755 1.69399L66.6839 5.41284C66.7508 5.61885 66.9428 5.75833 67.1594 5.75833H71.0696C71.554 5.75833 71.7554 6.37814 71.3635 6.66284L68.2001 8.96122C68.0248 9.08854 67.9515 9.31422 68.0184 9.52023L69.2268 13.2391C69.3764 13.6997 68.8492 14.0828 68.4573 13.7981L65.2939 11.4997C65.1186 11.3724 64.8814 11.3724 64.7061 11.4997L61.5427 13.7981C61.1508 14.0828 60.6236 13.6997 60.7732 13.2391L61.9816 9.52023C62.0485 9.31422 61.9752 9.08854 61.7999 8.96122L58.6365 6.66284C58.2446 6.37814 58.446 5.75833 58.9304 5.75833H62.8406C63.0572 5.75833 63.2492 5.61885 63.3161 5.41284L64.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                    <path
+                                      d="M83.5245 1.69399C83.6741 1.23334 84.3259 1.23334 84.4755 1.69399L85.6839 5.41284C85.7508 5.61885 85.9428 5.75833 86.1594 5.75833H90.0696C90.554 5.75833 90.7554 6.37814 90.3635 6.66284L87.2001 8.96122C87.0248 9.08854 86.9515 9.31422 87.0184 9.52023L88.2268 13.2391C88.3764 13.6997 87.8492 14.0828 87.4573 13.7981L84.2939 11.4997C84.1186 11.3724 83.8814 11.3724 83.7061 11.4997L80.5427 13.7981C80.1508 14.0828 79.6236 13.6997 79.7732 13.2391L80.9816 9.52023C81.0485 9.31422 80.9752 9.08854 80.7999 8.96122L77.6365 6.66284C77.2446 6.37814 77.446 5.75833 77.9304 5.75833H81.8406C82.0572 5.75833 82.2492 5.61885 82.3161 5.41284L83.5245 1.69399Z"
+                                      fill="#FF9B26"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="btn_grp">
+                                <a href="/ourCourses" class="btn-view"
+                                  >View Course</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% }); %> <% } else { %>
+                      <p class="text-muted">
+                        No courses found in Govt Typing Exams category.
+                      </p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="program_btn-grp">
+              <a href="/ourCourses" class="btn_v2">
+                View More
+                <div class="btn_icon">
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.38255 8.51833H15.5247M15.5247 8.51833L8.45361 1.44727M15.5247 8.51833L8.45361 15.5894"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="home_gallery">
+        <div class="container">
+          <div class="gallery_component">
+            <div class="row">
+              <% if (galleryImages && galleryImages.length > 0) { %>
+              <!-- First (Featured) Image -->
+              <div class="col-md-6">
+                <div class="gallery_item is_featured">
+                  <img
+                    src="<%= galleryImages[0].imagePath %>"
+                    class="w-100 h-100"
+                  />
+                </div>
+              </div>
+
+              <!-- Remaining Images -->
+              <div class="col-md-6">
+                <div class="gallery_right">
+                  <div class="row">
+                    <% for (let i = 1; i < galleryImages.length && i < 5; i++) {
+                    %>
+                    <div class="col-md-6">
+                      <div class="gallery_item">
+                        <img
+                          src="<%= galleryImages[i].imagePath %>"
+                          class="w-100 h-100"
+                        />
+                      </div>
+                    </div>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+              <% } else { %>
+              <p>No gallery images found.</p>
+              <% } %>
+            </div>
+            <div class="gallery_quote text-center">
+              <p>
+                Reach us and Join Monthly Career Development Seminars and
+                Workshops and be a <br />part of our Desinerz Academy Family
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="colleges section_space">
+        <div class="container">
+          <div class="colleges_component">
+            <div class="section_heading is_para"><%- ourCollegesContent %></div>
+            <div class="row">
+              <% universities.forEach(university => { %>
+              <div class="col-md-6 col-lg-4">
+                <div class="program_item colleges_item">
+                  <!-- University Main Image -->
+                  <div class="program_im-wrapper">
+                    <img
+                      src="<%= university.image %>"
+                      class="w-100 h-100"
+                      alt="<%= university.name %>"
+                    />
+                  </div>
+
+                  <!-- Content Section -->
+                  <div class="program_content">
+                    <div class="clg_top">
+                      <div class="row align-items-center">
+                        <!-- University Logo -->
+                        <div class="col-2">
+                          <div class="clg_icon">
+                            <img
+                              src="<%= university.image %>"
+                              class="w-100 h-100"
+                              alt="Logo"
+                            />
+                          </div>
+                        </div>
+
+                        <!-- University Info -->
+                        <div class="col-10">
+                          <div class="program_middle p-0">
+                            <h4 class="fw-bold"><%= university.name %></h4>
+
+                            <!-- Rating -->
+                            <div
+                              class="program_rating d-flex align-items-center gap-2"
+                            >
+                              <p class="mb-0 text-primary">
+                                <%= university.rating %>
+                              </p>
+                              <% const rating = parseFloat(university.rating) ||
+                              0; const fullStars = Math.floor(rating); const
+                              halfStar = rating % 1 >= 0.5; const emptyStars = 5
+                              - fullStars - (halfStar ? 1 : 0); %>
+
+                              <!-- Stars -->
+                              <div class="d-flex align-items-center gap-1">
+                                <% for (let i = 0; i < fullStars; i++) { %>
+                                <i class="fas fa-star text-warning"></i>
+                                <% } %> <% if (halfStar) { %>
+                                <i
+                                  class="fas fa-star-half-alt text-warning"
+                                ></i>
+                                <% } %> <% for (let i = 0; i < emptyStars; i++)
+                                { %>
+                                <i class="far fa-star text-warning"></i>
+                                <% } %>
+                              </div>
+                            </div>
+
+                            <!-- Enrolled + Location -->
+                            <div
+                              class="clg_contact d-flex align-items-center gap-3 mt-2"
+                            >
+                              <div
+                                class="d-flex align-items-center gap-1 text-primary"
+                              >
+                                <i class="fas fa-book"></i>
+                                <p class="mb-0">
+                                  <%= university.enrolled %> Enrolled
+                                </p>
+                              </div>
+
+                              <div
+                                class="d-flex align-items-center gap-1 text-primary"
+                              >
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p class="mb-0"><%= university.location %></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- View Button -->
+                  <div class="btn_grp text-center mt-3">
+                    <a
+                      href="<%= university.metaKeyword %>"
+                      class="btn btn-primary btn-view"
+                      >View College</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners_placement section_space">
+        <div class="container">
+          <div class="place_partners-component">
+            <div class="section_heading is_para">
+              <%- ourEducationContent %>
+            </div>
+
+            <div class="place_partner_wrapper">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-md-9">
+                  <div
+                    class="row align-items-center justify-content-center place_partner_row"
+                  >
+                    <% if (educationImages && educationImages.length > 0) { %>
+                    <% educationImages.forEach(image => { %>
+                    <div class="col-6 col-md-4">
+                      <div class="place_logo-item">
+                        <img src="<%= image.imagePath %>" />
+                      </div>
+                    </div>
+                    <% }); %> <% } else { %>
+                    <p>No placement partner images uploaded yet.</p>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section class="moments section_space">
+              <div class="container">
+                <div class="moments_component">
+                  <div class="section_heading is_para">
+                    <p class="text-blue">Our Placement Partners</p>
+                    <h3>
+                      More than
+                      <span class="text-blue">500+</span> Students Placed
+                    </h3>
+                    <p class="para">
+                      Our dream is to guide students according to their skills
+                      and prepare them for the right direction and job
+                      readiness.
+                    </p>
+                  </div>
+
+                  <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                      <% if (placementStudentImages &&
+                      placementStudentImages.length > 0) { %> <%
+                      placementStudentImages.forEach(image => { %>
+                      <div class="swiper-slide">
+                        <img
+                          src="<%= image.imagePath %>"
+                          alt="Placement Student"
+                        />
+                      </div>
+                      <% }); %> <% } else { %>
+                      <p>No placement partner images uploaded yet.</p>
+                      <% } %>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <!-- If we need navigation buttons -->
+                    <!-- <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div> -->
+                  </div>
+                </div>
+
+                <section class="faq section_space">
+                  <div class="container">
+                    <div class="faq_component">
+                      <div class="section_heading is_para">
+                        <%- faqHeading %>
+                      </div>
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-md-12 col-lg-10">
+                          <div id="accordion" class="faq_accordian">
+                            <% faqs.forEach((faq, index) => { %>
+                            <div class="card">
+                              <div class="card-header" id="heading<%= index %>">
+                                <h5 class="mb-0">
+                                  <button
+                                    class="btn btn-link faq-toggle-button <%= index === 0 ? 'active' : '' %>"
+                                    data-toggle="collapse"
+                                    data-target="#collapse<%= index %>"
+                                    aria-expanded="<%= index === 0 ? 'true' : 'false' %>"
+                                    aria-controls="collapse<%= index %>"
+                                  >
+                                    <div class="question-content">
+                                      <%= faq.question %>
+                                    </div>
+                                    <div class="faq_icon position-relative">
+                                      <div class="plus">
+                                        <svg
+                                          width="17"
+                                          height="14"
+                                          viewBox="0 0 17 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M8.16064 1.41406V13.1053"
+                                            stroke="#303A42"
+                                            stroke-width="1.69884"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          />
+                                          <path
+                                            d="M1.0249 7.25977H15.2971"
+                                            stroke="#303A42"
+                                            stroke-width="1.69884"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                      <div class="minus">
+                                        <svg
+                                          width="17"
+                                          height="2"
+                                          viewBox="0 0 17 2"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.30957 1.01367H15.5818"
+                                            stroke="#7F56D9"
+                                            stroke-width="1.69884"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </button>
+                                </h5>
+                              </div>
+
+                              <div
+                                id="collapse<%= index %>"
+                                class="collapse <%= index === 0 ? 'show' : '' %>"
+                                aria-labelledby="heading<%= index %>"
+                                data-parent="#accordion"
+                              >
+                                <div class="card-body"><%= faq.answer %></div>
+                              </div>
+                            </div>
+                            <% }); %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="testimonials section_space">
+                  <div class="container">
+                    <div class="testimonial_component">
+                      <div class="section_heading is_para">
+                        <%- studentReviewContent %>
+                      </div>
+                    </div>
+
+                    <div class="testimonial_wrap">
+                      <div class="slick-slider">
+                        <% reviews.forEach(function(review) { %>
+                        <div class="element element-1">
+                          <div class="testimonial_item">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <div class="testimonial_left">
+                                  <div class="testimonial_im-wrapper">
+                                    <img
+                                      src="<%= review.imagePath %>"
+                                      alt="<%= review.name %>"
+                                    />
+                                  </div>
+                                  <div class="testimonial_user-info">
+                                    <h5 class="text-blue">
+                                      <%= review.name %>
+                                    </h5>
+                                    <p class="position">
+                                      <%= review.position %>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-7">
+                                <div class="testimonial_slidecontent">
+                                  <div
+                                    class="rating_star-grp d-flex align-items-center"
+                                  >
+                                    <% for (let i = 0; i < 5; i++) { %>
+                                    <svg
+                                      width="42"
+                                      height="41"
+                                      viewBox="0 0 42 41"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M19.3579 4.41929C19.7933 3.07901 21.6895 3.07901 22.125 4.41929L24.9874 13.2289C25.1822 13.8283 25.7407 14.2341 26.371 14.2341L35.634 14.2341C37.0432 14.2341 37.6292 16.0375 36.489 16.8658L28.9951 22.3105C28.4852 22.6809 28.2719 23.3376 28.4666 23.937L31.3291 32.7466C31.7646 34.0869 30.2305 35.2014 29.0904 34.3731L21.5965 28.9284C21.0866 28.558 20.3962 28.558 19.8863 28.9284L12.3924 34.3731C11.2523 35.2014 9.71827 34.0869 10.1538 32.7466L13.0162 23.937C13.2109 23.3376 12.9976 22.6809 12.4877 22.3105L4.99378 16.8658C3.85366 16.0375 4.4396 14.2341 5.84887 14.2341L15.1119 14.2341C15.7421 14.2341 16.3007 13.8283 16.4954 13.2289L19.3579 4.41929Z"
+                                        fill="#FED917"
+                                      />
+                                    </svg>
+                                    <% } %>
+                                  </div>
+                                  <p><%= review.review %></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <% }); %>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="home_contact section_space">
+                  <div class="container">
+                    <div class="home_contact-component">
+                      <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                          <div class="home_contact-left">
+                            <div class="home_contact-header">
+                              <%- homeLoctionContent %>
+                            </div>
+                            <form
+                              class="banner_form contact_form p-0"
+                              action="/contact-inquiry"
+                              method="POST"
+                            >
+                              <div class="form_group">
+                                <input
+                                  name="name"
+                                  placeholder="Name *"
+                                  type="text"
+                                  required
+                                />
+                              </div>
+
+                              <div class="form_group">
+                                <input
+                                  name="email"
+                                  placeholder="Email *"
+                                  type="email"
+                                  required
+                                />
+                              </div>
+
+                              <div class="form_group">
+                                <input
+                                  name="phone"
+                                  placeholder="Phone number *"
+                                  type="tel"
+                                  required
+                                />
+                              </div>
+
+                              <button class="btn_form w-100" type="submit">
+                                Send
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                          <div class="contact_right">
+                            <div class="contact_map">
+                              <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13972.951162051604!2d76.5977105!3d28.8912811!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d8531e1920db9%3A0xa303acea57b7f227!2sMDC%20Maharishi%20Dayanand%20College%20Best%20Ui%2FUx%20%26%20Graphics%20Design%2C%20Digital%20Marketing%2C%20Computer%20Basics%20%26Typing%20Institute%20in%20Rohtak!5e0!3m2!1sen!2sin!4v1720422430994!5m2!1sen!2sin"
+                                width="600"
+                                height="400"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                              ></iframe>
+                            </div>
+                            <div class="home_contact-list">
+                              <div
+                                class="row"
+                                style="
+                                  display: flex;
+                                  justify-content: space-around;
+                                "
+                              >
+                                <div class="col-4">
+                                  <div class="home_contact-item">
+                                    <div class="home_contact-icon">
+                                      <svg
+                                        width="29"
+                                        height="29"
+                                        viewBox="0 0 29 29"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M16.2047 0.828613V2.75705C18.1121 2.75705 19.899 3.23916 21.5654 4.20338C23.1516 5.14751 24.4165 6.41305 25.3601 7.99999C26.3238 9.66728 26.8057 11.4551 26.8057 13.3635H28.7332C28.7332 11.0935 28.1609 8.98429 27.0165 7.03577C25.9122 5.14751 24.4165 3.65096 22.5292 2.54613C20.5816 1.40112 18.4735 0.828613 16.2047 0.828613ZM6.23611 3.72127C5.69401 3.72127 5.22219 3.89202 4.82064 4.23351L1.71863 7.39735L1.80898 7.33709C1.30704 7.75893 0.97576 8.28122 0.815138 8.90394C0.674594 9.52667 0.71475 10.1293 0.935604 10.7119C1.49778 12.2787 2.25069 13.8857 3.19434 15.5329C4.51947 17.8029 6.09557 19.8418 7.92264 21.6497C10.854 24.6026 14.4981 26.9328 18.8549 28.6403H18.8851C19.4673 28.8412 20.0496 28.8813 20.6318 28.7608C21.2341 28.6403 21.7662 28.3791 22.228 27.9774L25.2698 24.9341C25.6713 24.5323 25.8721 24.0402 25.8721 23.4576C25.8721 22.855 25.6713 22.3528 25.2698 21.951L21.3245 17.9736C20.9229 17.5719 20.421 17.371 19.8187 17.371C19.2163 17.371 18.7144 17.5719 18.3128 17.9736L16.4155 19.9021C14.8896 19.1789 13.5645 18.285 12.4401 17.2203C11.3158 16.1356 10.4223 14.8198 9.75975 13.2731L11.6872 11.3446C12.1088 10.9027 12.3196 10.3804 12.3196 9.77777C12.3196 9.15504 12.0787 8.65284 11.5969 8.27117L11.6872 8.36157L7.65159 4.23351C7.25003 3.89202 6.77821 3.72127 6.23611 3.72127ZM16.2047 4.68549V6.61392C17.4294 6.61392 18.5538 6.91524 19.5777 7.51788C20.6218 8.12052 21.445 8.94412 22.0473 9.98869C22.6496 11.0132 22.9508 12.1381 22.9508 13.3635H24.8782C24.8782 11.7966 24.4867 10.3402 23.7037 8.99434C22.9207 7.68863 21.8766 6.64406 20.5716 5.86063C19.2264 5.0772 17.7707 4.68549 16.2047 4.68549ZM6.23611 5.64971C6.29635 5.64971 6.36662 5.67984 6.44693 5.7401L10.3922 9.77777C10.4123 9.85812 10.3922 9.92842 10.332 9.98869L7.47089 12.8211L7.6817 13.4237L8.07322 14.2674C8.39446 14.9504 8.7659 15.6133 9.18753 16.2561C9.76978 17.1601 10.4123 17.9334 11.115 18.5763C12.0586 19.5003 13.193 20.344 14.5182 21.1073C15.1807 21.489 15.7429 21.7702 16.2047 21.951L16.807 22.2222L19.7283 19.2994C19.7685 19.2592 19.7986 19.2392 19.8187 19.2392C19.8387 19.2392 19.8689 19.2592 19.909 19.2994L23.9747 23.3672C24.0149 23.4074 24.035 23.4375 24.035 23.4576C24.035 23.4576 24.0149 23.4777 23.9747 23.5179L20.9631 26.5009C20.5214 26.8826 20.0395 26.983 19.5175 26.8022C15.4217 25.2153 12.0084 23.0458 9.27788 20.2938C7.59136 18.6064 6.11565 16.688 4.85075 14.5386C3.94726 12.9918 3.24454 11.4953 2.7426 10.049V10.0188C2.66228 9.83803 2.65225 9.62711 2.71248 9.38605C2.77271 9.12491 2.88314 8.92403 3.04376 8.78342L6.0253 5.7401C6.08553 5.67984 6.1558 5.64971 6.23611 5.64971ZM16.2047 8.54236V10.4708C17.0078 10.4708 17.6904 10.752 18.2526 11.3145C18.8148 11.877 19.0959 12.5599 19.0959 13.3635H21.0233C21.0233 12.4997 20.8025 11.6962 20.3608 10.9529C19.9391 10.2097 19.3569 9.62711 18.614 9.20526C17.8711 8.76333 17.068 8.54236 16.2047 8.54236Z"
+                                          fill="black"
+                                        />
+                                      </svg>
+                                    </div>
+                                    <div class="home_contact-content">
+                                      <h6>PHONE</h6>
+                                      <a
+                                        class="text-blue"
+                                        href="tel:+91 8683047647"
+                                        >+91 7419148583</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-4">
+                                  <div class="home_contact-item">
+                                    <div class="home_contact-icon">
+                                      <svg
+                                        width="28"
+                                        height="29"
+                                        viewBox="0 0 28 29"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M7.95455 3.0293V5.00053L1.75 9.03995V25.7793H26.5682V9.03995L20.3636 5.00053V3.0293H7.95455ZM10.0227 5.09748H18.2955V13.0471L14.1591 15.7292L10.0227 13.0471V5.09748ZM11.0568 7.16566V9.23384H17.2614V7.16566H11.0568ZM7.95455 7.4565V11.6898L4.6907 9.58931L7.95455 7.4565ZM20.3636 7.4565L23.6275 9.58931L20.3636 11.6898V7.4565ZM11.0568 10.2679V12.3361H17.2614V10.2679H11.0568ZM3.81818 11.4959L14.1591 18.1852L24.5 11.4959V23.7111H3.81818V11.4959Z"
+                                          fill="black"
+                                        />
+                                      </svg>
+                                    </div>
+                                    <div class="home_contact-content">
+                                      <h6>EMAIL</h6>
+                                      <a
+                                        class="text-blue text-lowercase"
+                                        href="mailto:reachDesinerz Academygov@gmail.com"
+                                        >reachDesinerz Academygov@gmail.com</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="blog section_space">
+                  <div class="container">
+                    <div class="blog_component">
+                      <div class="section_heading is_para">
+                        <%- homeBlogSection %>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- main content -->
+              <div
+                class="modal fade student_login"
+                id="exampleModalCenter"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                    <div class="modal-body p-0">
+                      <div class="row">
+                        <div class="col-md-5 left_col p-0">
+                          <div class="modal_left-shap">
+                            <img src="/images/girl1.png" alt="Enroll Image" />
+                          </div>
+                        </div>
+                        <div class="col-md-7" style="position: relative">
+                          <div class="student_login-content">
+                            <form
+                              class="student_login-form"
+                              action="/enroll"
+                              method="POST"
+                            >
+                              <div class="form_header">
+                                <h6 class="text-blue">
+                                  Get Enroll with Desinerz Academy
+                                </h6>
+                                <h3>
+                                  Choose Best Courses and Universities for your
+                                  upskilling
+                                </h3>
+                              </div>
+                              <div class="form_wrapper">
+                                <div class="form_group">
+                                  <input
+                                    name="fullName"
+                                    placeholder="Full Name *"
+                                    type="text"
+                                    required
+                                  />
+                                </div>
+                                <div class="form_group">
+                                  <input
+                                    name="email"
+                                    placeholder="Email *"
+                                    type="email"
+                                    required
+                                  />
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form_group">
+                                      <input
+                                        name="phone"
+                                        placeholder="Phone Number *"
+                                        type="tel"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form_group">
+                                      <input
+                                        name="dob"
+                                        placeholder="Date of Birth *"
+                                        type="date"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form_group">
+                                      <input
+                                        name="state"
+                                        placeholder="State *"
+                                        type="text"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form_group">
+                                      <input
+                                        name="courseChoice"
+                                        placeholder="Course Choice *"
+                                        type="text"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <div class="form_group">
+                                      <button type="submit">Send</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                const swiper = new Swiper(".swiper", {
+                  // Optional parameters
+                  loop: true,
+                  centeredSlides: true,
+                  autoplay: {
+                    delay: 1000,
+                    disableOnInteraction: false,
+                  },
+                  // Navigation arrows
+                  //   navigation: {
+                  //     nextEl: '.swiper-button-next',
+                  //     prevEl: '.swiper-button-prev',
+                  //   },
+                  pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                  },
+                  breakpoints: {
+                    // when window width is >= 320px
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 30,
+                    },
+                    // when window width is >= 480px
+                    1024: {
+                      slidesPerView: 3,
+                      spaceBetween: 40,
+                    },
+                    // when window width is >= 640px
+                    1280: {
+                      slidesPerView: 3,
+                      spaceBetween: 74,
+                    },
+                  },
+                });
+              </script>
+              <script>
+                var swiper2 = new Swiper(".swiper-container", {
+                  pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                  },
+                  parallax: true,
+                  speed: 600,
+                  breakpoints: {
+                    // when window width is >= 320px
+                    768: {
+                      slidesPerView: 1.1,
+                      spaceBetween: 16,
+                    },
+                    // when window width is >= 480px
+                    1024: {
+                      slidesPerView: 2,
+                      spaceBetween: 40,
+                    },
+                    // when window width is >= 640px
+                    1280: {
+                      slidesPerView: 2,
+                      spaceBetween: 29,
+                    },
+                  },
+                });
+              </script>
+
+              <script>
+                $(".slick-slider").slick({
+                  autoplay: true,
+                  autoplaySpeed: 0,
+                  speed: 9000,
+                  cssEase: "linear",
+                  slidesToShow: 2.1,
+                  infinite: true,
+                  responsive: [
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 1.5,
+                      },
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1.5,
+                      },
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 1,
+                      },
+                    },
+                  ],
+                });
+              </script>
+
+              <script type="text/javascript" src="js/custom.js"></script>
+              <script src="js/cursor.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
+              <script type="text/javascript" src="js/custom.js"></script>
+
+              <script type="text/javascript" src="js/animation.js"></script>
+            </section>
+          </div>
+        </div>
+      </section>
+      <%- include("partials/footer") %>
+    </div>
+
+    <!-- Modal Script -->
+    <script>
+      let formSubmitted = false;
+
+      // Show modal on page load
+      $(document).ready(function () {
+        $("#exampleModalCenter").modal("show");
+
+        // Repeat every 10 seconds if not submitted
+        const popupInterval = setInterval(() => {
+          if (!formSubmitted) {
+            $("#exampleModalCenter").modal("show");
+          } else {
+            clearInterval(popupInterval);
+          }
+        }, 10000);
+
+        // Detect form submit
+        $(".student_login-form").on("submit", function () {
+          formSubmitted = true;
+          $("#exampleModalCenter").modal("hide");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Desinerz Academy - Home</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="IE=10" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="/css/fonts/fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <!-- page animation section css start -->
+    <link rel="stylesheet" href="/css/animation.css" />
+    <link rel="stylesheet" href="/css/aos.css" />
+    <link rel="stylesheet" href="/css/w3.css" />
+    <!-- page animation section css end -->
+    <!-- cursor animated -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/css/cursor.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <!-- cursor animated -->
+
+    <!-- slick -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- slick -->
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+  </head>
+
+  <body id="body">
+    <%- include("partials/header")%>
+    <div class="page-wrapper" id="dashboard-page">
+      <!-- main content -->
+      <div class="main-wrapper">
+        <div class="content-wrapper">
+          <section class="bg_banner">
+            <div class="container">
+              <div class="bg_banner-text text-center">
+                <p class="text-white">Chalo! Apna Career Bnaaye.</p>
+                <h1 class="text-white">
+                  Over 12,000+ students enrolled in the year of 2023-24
+                </h1>
+                <section class="is_breadcrumb">
+                  <div class="container">
+                    <ul
+                      class="p-0 m-0 position-relative d-flex align-items-center justify-content-center"
+                    >
+                      <li>
+                        <a href="/"
+                          ><i
+                            class="fa fa-home home_icon"
+                            aria-hidden="true"
+                          ></i>
+                          Home</a
+                        >
+                      </li>
+
+                      <?xml version="1.0" encoding="utf-8"?>
+                      <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                      <svg
+                        width="10px"
+                        height="10px"
+                        viewBox="0 0 1024 1024"
+                        class="icon"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"
+                          fill="#fff"
+                        />
+                      </svg>
+                      <li class="active">About Us</li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <section class="about_itro section_space position-relative">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-7 about_left pr-5">
+                  <%- topAboutSection %>
+                  <div class="features row mt-5">
+                    <div class="col-md-4">
+                      <div class="features-iem">
+                        <img
+                          src="https://assets-v2.scaler.com/assets/scaler/png/job-driven-4c9683c56b4837ec4583c518a654aecb3249903e1c06c558deb3a4d096a6fd92.png.gz"
+                        />
+                        <p>Job-driven online Tech-versity</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="features-iem">
+                        <img
+                          src="https://assets-v2.scaler.com/assets/scaler/png/mentorship-4f403c9879afbcb66502ad3f032988e638ef6945a510845063636c39594d1a64.png.gz"
+                        />
+                        <p>Mentorship by industry stalwarts</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="features-iem">
+                        <img
+                          src="https://assets-v2.scaler.com/assets/scaler/png/curriculum-2243c8eb727ac4080250f9b9146f230f50250ae94cffc44fe054061a920f43fc.png.gz"
+                        />
+                        <p>Forward-Looking and in-depth course curriculum</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <div class="video_wrapper">
+                    <% if (latestTopMedia && latestTopMedia.imagePath) { %>
+                    <img
+                      src="<%= latestTopMedia.imagePath %>"
+                      alt="Top Section Image"
+                      style="width: 100%; height: auto; max-height: 520px"
+                    />
+                    <% } else if (latestTopMedia && latestTopMedia.videoUrl) {
+                    %>
+                    <iframe
+                      width="100%"
+                      height="520"
+                      src="<%= latestTopMedia.videoUrl %>"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="partners">
+            <div class="container">
+              <div class="partner_component">
+                <div class="partner_heading">
+                  <p class="">
+                    Our
+                    <span class="text-blue font-700">Placement Partners</span>
+                  </p>
+                </div>
+                <div class="logos">
+                  <div class="logo_items">
+                    <% if (PlacementImages && PlacementImages.length > 0) { %>
+                    <% PlacementImages.forEach(image => { %>
+                    <img
+                      class=""
+                      src="<%= image.imagePath %>"
+                      alt="Placement Partner"
+                    />
+                    <% }); %> <% } else { %>
+                    <p>No placement partner images uploaded yet.</p>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="about_itro is_right section_space position-relative">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <div class="video_wrapper">
+                    <% if (latestBottomMedia && latestBottomMedia.imagePath) {
+                    %>
+                    <img
+                      src="<%= latestBottomMedia.imagePath %>"
+                      alt="Bottom Section Image"
+                      style="width: 100%; height: auto; max-height: 300px"
+                    />
+                    <% } else if (latestBottomMedia &&
+                    latestBottomMedia.videoUrl) { %>
+                    <iframe
+                      width="100%"
+                      height="300"
+                      src="<%= latestBottomMedia.videoUrl %>"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="col-md-7 about_left pl-5">
+                  <div class="section_heading is_para text-left">
+                    <h3>Director Message</h3>
+                  </div>
+                  <div class="intro_text"><%- bottomAboutSection %></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="partners_placement section_space">
+            <div class="container">
+              <div class="place_partners-component">
+                <div class="section_heading is_para">
+                  <%- ourEducationContent %>
+                </div>
+
+                <div class="place_partner_wrapper">
+                  <div class="row align-items-center justify-content-center">
+                    <div class="col-md-9">
+                      <div
+                        class="row align-items-center justify-content-center place_partner_row"
+                      >
+                        <% if (educationImages && educationImages.length > 0) {
+                        %> <% educationImages.forEach(image => { %>
+                        <div class="col-6 col-md-4">
+                          <div class="place_logo-item">
+                            <img src="<%= image.imagePath %>" />
+                          </div>
+                        </div>
+                        <% }); %> <% } else { %>
+                        <p>No placement partner images uploaded yet.</p>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Student REviews content  -->
+          <section class="testimonials section_space">
+            <div class="container">
+              <div class="testimonial_component">
+                <div class="section_heading is_para">
+                  <%- studentReviewContent %>
+                </div>
+              </div>
+
+              <div class="testimonial_wrap">
+                <div class="slick-slider">
+                  <% reviews.forEach(function(review) { %>
+                  <div class="element element-1">
+                    <div class="testimonial_item">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="testimonial_left">
+                            <div class="testimonial_im-wrapper">
+                              <img
+                                src="<%= review.imagePath %>"
+                                alt="<%= review.name %>"
+                              />
+                            </div>
+                            <div class="testimonial_user-info">
+                              <h5 class="text-blue"><%= review.name %></h5>
+                              <p class="position"><%= review.position %></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="testimonial_slidecontent">
+                            <div
+                              class="rating_star-grp d-flex align-items-center"
+                            >
+                              <% for (let i = 0; i < 5; i++) { %>
+                              <svg
+                                width="42"
+                                height="41"
+                                viewBox="0 0 42 41"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M19.3579 4.41929C19.7933 3.07901 21.6895 3.07901 22.125 4.41929L24.9874 13.2289C25.1822 13.8283 25.7407 14.2341 26.371 14.2341L35.634 14.2341C37.0432 14.2341 37.6292 16.0375 36.489 16.8658L28.9951 22.3105C28.4852 22.6809 28.2719 23.3376 28.4666 23.937L31.3291 32.7466C31.7646 34.0869 30.2305 35.2014 29.0904 34.3731L21.5965 28.9284C21.0866 28.558 20.3962 28.558 19.8863 28.9284L12.3924 34.3731C11.2523 35.2014 9.71827 34.0869 10.1538 32.7466L13.0162 23.937C13.2109 23.3376 12.9976 22.6809 12.4877 22.3105L4.99378 16.8658C3.85366 16.0375 4.4396 14.2341 5.84887 14.2341L15.1119 14.2341C15.7421 14.2341 16.3007 13.8283 16.4954 13.2289L19.3579 4.41929Z"
+                                  fill="#FED917"
+                                />
+                              </svg>
+                              <% } %>
+                            </div>
+                            <p><%= review.review %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% }); %>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- main content -->
+
+    <!-- footer section -->
+    <%- include("partials/footer") %>
+
+    <!-- footer section -->
+
+    <!-- slick -->
+
+    <!-- slick -->
+
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        loop: true,
+        centeredSlides: true,
+        // Navigation arrows
+        //   navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        //   },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width is >= 480px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          // when window width is >= 640px
+          1280: {
+            slidesPerView: 3,
+            spaceBetween: 74,
+          },
+        },
+      });
+    </script>
+    <script>
+      var swiper2 = new Swiper(".swiper-container", {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        parallax: true,
+        speed: 600,
+        breakpoints: {
+          // when window width is >= 320px
+          768: {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+          },
+          // when window width is >= 480px
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          // when window width is >= 640px
+          1280: {
+            slidesPerView: 2,
+            spaceBetween: 29,
+          },
+        },
+      });
+    </script>
+    <script>
+      $(".slick-slider").slick({
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 9000,
+        cssEase: "linear",
+        slidesToShow: 2.1,
+        infinite: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1.5,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1.5,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
+    </script>
+
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script src="/js/cursor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13//js/intlTelInput-jquery.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <!-- page animation section js start -->
+    <script type="text/javascript" src="/js/animation.js"></script>
+
+    <!-- page animation section js end -->
+  </body>
+</html>

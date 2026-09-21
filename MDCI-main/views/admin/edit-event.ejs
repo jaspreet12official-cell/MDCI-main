@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <style>
+      .form-section {
+        margin: 30px auto;
+        max-width: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>Contact Us</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container form-section">
+        <h2 class="mb-4">Edit Event</h2>
+        <form
+          action="/edit-event/<%= event._id %>"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label>Event Name</label>
+            <input
+              type="text"
+              name="name"
+              value="<%= event.name %>"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Event Date</label>
+            <input
+              type="date"
+              name="eventDate"
+              value="<%= event.eventDate.toISOString().split('T')[0] %>"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value="<%= event.email %>"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Website</label>
+            <input
+              type="text"
+              name="website"
+              value="<%= event.website %>"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Organiser</label>
+            <input
+              type="text"
+              name="organiser"
+              value="<%= event.organiser %>"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Map Location</label>
+            <input
+              type="text"
+              name="mapLocation"
+              value="<%= event.mapLocation %>"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Current Event Image</label><br />
+            <% if (event.eventImage) { %>
+            <img
+              src="<%= event.eventImage %>"
+              width="120"
+              height="100"
+              style="object-fit: cover"
+            />
+            <% } else { %>
+            <span>No image uploaded.</span>
+            <% } %>
+          </div>
+
+          <div class="form-group">
+            <label>Upload New Event Image</label>
+            <input type="file" name="eventImage" class="form-control-file" />
+          </div>
+
+          <!-- Editable Content Fields -->
+          <div class="form-group">
+            <label>Content</label>
+            <textarea name="content" class="form-control" rows="4">
+<%= event.content %></textarea
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Details</label>
+            <textarea name="details" class="form-control" rows="4">
+<%= event.details %></textarea
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Venue</label>
+            <input
+              type="text"
+              name="venue"
+              value="<%= event.venue %>"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Meta Title</label>
+            <input
+              type="text"
+              name="metaTitle"
+              value="<%= event.metaTitle %>"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Meta Description</label>
+            <textarea name="metaDescription" class="form-control" rows="2">
+<%= event.metaDescription %></textarea
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Meta Keywords</label>
+            <input
+              type="text"
+              name="metaKeywords"
+              value="<%= event.metaKeywords %>"
+              class="form-control"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Update Event</button>
+          <a href="/events" class="btn btn-secondary ml-2">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

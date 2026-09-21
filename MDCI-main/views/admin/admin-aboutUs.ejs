@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+
+    <style>
+      body {
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #343a40;
+      }
+      .form-section {
+        padding: 2rem;
+        margin: 4rem 1rem;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 3rem;
+        border: 1px solid #e3e3e3;
+      }
+      .form-group label {
+        font-weight: 600;
+      }
+      .btn {
+        border-radius: 20px;
+      }
+      .btn-primary {
+        min-width: 130px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include('../partials/sidebar') %>
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <!-- Toggle Button Start -->
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <!-- Toggle Button End -->
+
+          <h1>About Us</h1>
+        </div>
+
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+      <!-- Body Content Starts here  -->
+
+      <!-- Section: Top Content -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input type="hidden" name="section" value="topAboutSection" />
+          <label for="editor-topAboutSection">Top Body Content</label>
+          <textarea
+            id="editor-topAboutSection"
+            name="content"
+            class="form-control"
+          >
+<%= topAboutSection %></textarea
+          >
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- ================= TOP SECTION ================= -->
+      <div class="form-section p-4 border rounded bg-light mb-4">
+        <h3 class="mb-3">Upload Top Image or Video Link</h3>
+
+        <!-- Content Type Toggle -->
+        <div class="mb-3">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              id="contentTypeImage-top"
+              name="contentType-top"
+              class="custom-control-input"
+              value="Image"
+              checked
+              onclick="toggleInput('top', 'image')"
+            />
+            <label class="custom-control-label" for="contentTypeImage-top"
+              >Image</label
+            >
+          </div>
+
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              id="contentTypeVideo-top"
+              name="contentType-top"
+              class="custom-control-input"
+              value="Video Link"
+              onclick="toggleInput('top', 'video')"
+            />
+            <label class="custom-control-label" for="contentTypeVideo-top"
+              >Video Link</label
+            >
+          </div>
+        </div>
+
+        <form
+          action="/upload-aboutMedia"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" name="section" value="top" />
+          <input type="hidden" name="name" id="name-top" value="Image" />
+
+          <!-- Image Upload -->
+          <div class="form-group mb-3" id="imageSection-top">
+            <% if (latestTopMedia && latestTopMedia.imagePath) { %>
+            <p>Currently uploaded image:</p>
+            <img
+              src="<%= latestTopMedia.imagePath %>"
+              alt="Uploaded"
+              class="img-thumbnail mb-2"
+              style="max-height: 150px"
+            />
+            <% } %>
+            <label for="image-top">Upload New Image</label>
+            <input
+              type="file"
+              name="image"
+              id="image-top"
+              class="form-control"
+            />
+          </div>
+
+          <!-- Video URL -->
+          <div class="form-group mb-3 d-none" id="urlSection-top">
+            <label for="videoUrl-top">Enter Video/Image URL</label>
+            <input
+              type="url"
+              name="videoUrl"
+              id="videoUrl-top"
+              class="form-control"
+              value="<%= latestTopMedia && latestTopMedia.videoUrl ? latestTopMedia.videoUrl : '' %>"
+              placeholder="https://example.com/video"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-success">
+            Update Top Section
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: Bottom Body Content (above form text area) -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input type="hidden" name="section" value="bottomAboutSection" />
+          <label for="editor-bottomAboutSection">Bottom Body Content</label>
+          <textarea
+            id="editor-bottomAboutSection"
+            name="content"
+            class="form-control"
+          >
+<%= bottomAboutSection %></textarea
+          >
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- ================= BOTTOM SECTION ================= -->
+      <div class="form-section">
+        <h3>Upload Bottom Image or Video Link</h3>
+
+        <!-- Content Type Toggle -->
+        <div class="custom-control custom-radio custom-control-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="contentType-bottom"
+            id="contentTypeImage-bottom"
+            value="Image"
+            checked
+            onclick="toggleInput('bottom', 'image')"
+          />
+          <label class="form-check-label" for="contentTypeImage-bottom"
+            >Image</label
+          >
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="contentType-bottom"
+            id="contentTypeVideo-bottom"
+            value="Video Link"
+            onclick="toggleInput('bottom', 'video')"
+          />
+          <label class="form-check-label" for="contentTypeVideo-bottom"
+            >Video Link</label
+          >
+        </div>
+
+        <form
+          action="/upload-aboutMedia"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" name="section" value="bottom" />
+          <input type="hidden" name="name" id="name-bottom" value="Image" />
+
+          <!-- Image Upload -->
+          <div class="form-group" id="imageSection-bottom">
+            <% if (latestBottomMedia && latestBottomMedia.imagePath) { %>
+            <p>Currently uploaded image:</p>
+            <img
+              src="<%= latestBottomMedia.imagePath %>"
+              alt="Uploaded"
+              style="max-height: 150px"
+            />
+            <% } %>
+            <label for="image-bottom">Upload New Image</label>
+            <input
+              type="file"
+              name="image"
+              id="image-bottom"
+              class="form-control"
+            />
+          </div>
+
+          <!-- Video URL -->
+          <div class="form-group d-none" id="urlSection-bottom">
+            <label for="videoUrl-bottom">Enter Video/Image URL</label>
+            <input
+              type="url"
+              name="videoUrl"
+              id="videoUrl-bottom"
+              class="form-control"
+              value="<%= latestBottomMedia && latestBottomMedia.videoUrl ? latestBottomMedia.videoUrl : '' %>"
+              placeholder="https://example.com/video"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-success mt-2">
+            Update Bottom Section
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: Meta Title -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input type="hidden" name="section" value="homeMetaHeading" />
+          <label for="editor-homeMetaHeading">Meta Title</label>
+          <textarea
+            id="editor-homeMetaHeading"
+            name="content"
+            class="form-control"
+          >
+<%= aboutUsMetaHeading %></textarea
+          >
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: Meta Description -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input type="hidden" name="section" value="homeMetaDescription" />
+          <label for="editor-homeMetaDescription">Meta Description</label>
+          <textarea
+            id="editor-homeMetaDescription"
+            name="content"
+            class="form-control"
+          >
+<%= aboutUsMetaDescription %></textarea
+          >
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: Meta Keywords -->
+      <div class="form-section">
+        <form action="/update-content" method="POST">
+          <input type="hidden" name="section" value="homeMetaKeyword" />
+          <label for="editor-homeMetaKeyword">Meta Keyword</label>
+          <textarea
+            id="editor-homeMetaKeyword"
+            name="content"
+            class="form-control"
+          >
+<%= aboutUsMetaKeyword %></textarea
+          >
+          <button type="submit" class="btn btn-success mt-2">
+            Update Above Form Content
+          </button>
+        </form>
+      </div>
+
+      <!-- Required Scripts -->
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.js"></script>
+
+      <!-- Summernote Init Script -->
+      <script src="/js/script.js"></script>
+      <script>
+        $(document).ready(function () {
+          // Initialize editors
+
+          $("#editor-topAboutSection").summernote({
+            height: 300,
+          });
+          $("#editor-bottomAboutSection").summernote({
+            height: 300,
+          });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+          const imageSection = document.getElementById("imageSection");
+          const urlSection = document.getElementById("urlSection");
+          const imageInput = document.getElementById("image");
+          const urlInput = document.getElementById("videoUrl");
+          const selectImageBtn = document.getElementById("selectImageBtn");
+          const selectUrlBtn = document.getElementById("selectUrlBtn");
+
+          const hasVideoUrl = urlInput.value.trim() !== "";
+
+          function showImageSection() {
+            imageSection.classList.remove("d-none");
+            urlSection.classList.add("d-none");
+            imageInput.disabled = false;
+            urlInput.disabled = true;
+            selectImageBtn.classList.add("btn-primary");
+            selectUrlBtn.classList.remove("btn-secondary");
+          }
+
+          function showUrlSection() {
+            imageSection.classList.add("d-none");
+            urlSection.classList.remove("d-none");
+            imageInput.disabled = true;
+            urlInput.disabled = false;
+            selectImageBtn.classList.remove("btn-primary");
+            selectUrlBtn.classList.add("btn-secondary");
+          }
+
+          // Set initial state
+          if (hasVideoUrl) {
+            showUrlSection();
+          } else {
+            showImageSection();
+          }
+
+          // Toggle on click
+          selectImageBtn.addEventListener("click", showImageSection);
+          selectUrlBtn.addEventListener("click", showUrlSection);
+        });
+
+        function toggleInput(section, type) {
+          document.getElementById(`name-${section}`).value =
+            type === "image" ? "Image" : "Video Link";
+          document
+            .getElementById(`imageSection-${section}`)
+            .classList.toggle("d-none", type !== "image");
+          document
+            .getElementById(`urlSection-${section}`)
+            .classList.toggle("d-none", type !== "video");
+        }
+      </script>
+      <!-- Body Content Ends here  -->
+    </div>
+  </body>
+</html>

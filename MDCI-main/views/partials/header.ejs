@@ -1,0 +1,237 @@
+<header class="custom-header" id="custom-header">
+      <div
+        class="navbar navbar-expand-lg navbar-sticky border-0 fixed-top custom_header p-0 d-block"
+        class="main-header"
+      >
+        <!-- <div class="top-_nav">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <p class="text-white">
+                  <strong>Desinerz Academy</strong>, Rohtak - Haryana
+                  12001
+                </p>
+              </div>
+              <div class="col-md-4">
+                <p class="top-highlight text-center">
+                  Govt. Recognised and ISO Certified
+                </p>
+              </div>
+              <div class="col-md-4 d-none d-md-block d-lg-block">
+                <p class="text-white text-right">
+                  <strong>Call Us Now -</strong>
+                  <a href="tel:+91 8683047647" class="text-white"
+                    >+91 8683047647</a
+                  >
+                  |
+                  <a href="tel:+91 7419148583" class="text-white"
+                    >+91 7419148583</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="container nav_shadow">
+          <a href="/" class="navbar-brand py-0 m-0 d-block">
+            <img
+              src="<%= headerImageUrl %>"
+              class="custom-logo"
+              alt="Desinerz Academy"
+            />
+          </a>
+
+          <div class="d-xl-none button-hamburger">
+            <button
+              type="button"
+              class="navbar-toggler collapsed"
+              data-toggle="collapse"
+              data-target="#navbar-navigation"
+              aria-expanded="false"
+            >
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div
+            class="navbar-collapse collapse justify-content-center"
+            id="navbar-navigation"
+          >
+            <div class="d-lg-block jb_front_nav_close">
+              <button class="navbar-toggler d-xl-none">
+                <i class="fa fa-times" aria-hi den="true"></i>
+              </button>
+            </div>
+
+            <div class="primary_menu">
+              <ul class="navbar-nav p-0 d-lg-none d-xl-flex">
+                <li>
+                  <a href="/ourCourses" class="navbar-nav-link header-list-item"
+                    >Our courses</a
+                  >
+                </li>
+                <li>
+                  <a href="/university/colleges" class="navbar-nav-link"
+                    >Universities/ Colleges</a
+                  >
+                </li>
+                <li><a href="/aboutUs" class="navbar-nav-link">About Us</a></li>
+                <!-- <li> <a href="/" class="navbar-nav-link">Blog</a></li> -->
+                <li><a href="/contact" class="navbar-nav-link">Contact</a></li>
+              </ul>
+              <div class="mobile_contact d-block d-md-none d-lg-none">
+                <a
+                  href="/student-login"
+                  target="_blank"
+                  class="header_btn download_btn is_login mb-2 d-block"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.03281 9.42188C8.03281 11.6095 9.8124 13.3891 12 13.3891C14.1876 13.3891 15.9672 11.6095 15.9672 9.42188C15.9672 7.23428 14.1876 5.45469 12 5.45469C9.8124 5.45469 8.03281 7.23428 8.03281 9.42188ZM14.9078 9.42188C14.9078 11.0252 13.6033 12.3297 12 12.3297C10.3967 12.3297 9.09219 11.0252 9.09219 9.42188C9.09219 7.8186 10.3967 6.51406 12 6.51406C13.6033 6.51406 14.9078 7.8186 14.9078 9.42188Z"
+                      fill="white"
+                      stroke="white"
+                      stroke-width="0.2"
+                    />
+                    <path
+                      d="M19.9062 5.48281C20.1988 5.48281 20.4359 5.24566 20.4359 4.95312C20.4359 4.66059 20.1988 4.42344 19.9062 4.42344C19.6137 4.42344 19.3766 4.66059 19.3766 4.95312C19.3766 5.24566 19.6137 5.48281 19.9062 5.48281Z"
+                      fill="white"
+                      stroke="white"
+                      stroke-width="0.2"
+                    />
+                    <path
+                      d="M20.7667 6.06473L20.7666 6.06476C20.5166 6.21662 20.4369 6.54238 20.5888 6.79245C21.5385 8.3566 22.0406 10.1573 22.0406 12C22.0406 14.8543 20.8644 17.5051 18.7858 19.4034C18.0508 16.3147 15.2772 14.0484 12 14.0484C8.72282 14.0484 5.94891 16.3149 5.2146 19.4038C3.13574 17.5052 1.95938 14.8543 1.95938 12C1.95938 6.46366 6.46366 1.95938 12 1.95938C14.2547 1.95938 16.3834 2.68744 18.1569 4.06513C18.3879 4.2446 18.7207 4.20274 18.9002 3.97175C19.0796 3.74075 19.0378 3.40795 18.8068 3.22849C16.8459 1.70523 14.4917 0.9 12 0.9C9.03291 0.9 6.24448 2.05417 4.14924 4.14954C2.05403 6.24483 0.9 9.03317 0.9 12C0.9 18.1322 5.8629 23.1 12 23.1C18.1529 23.1 23.1 18.1167 23.1 12C23.1 9.96362 22.5448 7.97274 21.4943 6.24262L21.4088 6.29452L21.4943 6.24262C21.3425 5.99259 21.0168 5.91301 20.7667 6.06473ZM12 15.1078C14.9676 15.1078 17.4335 17.2604 17.8533 20.1616C16.1426 21.3919 14.1257 22.0406 12 22.0406C9.87449 22.0406 7.85789 21.3918 6.14711 20.1614C6.5664 17.2603 9.03209 15.1078 12 15.1078Z"
+                      fill="white"
+                      stroke="white"
+                      stroke-width="0.2"
+                    />
+                  </svg>
+
+                  Student Login</a
+                >
+                <a href="#" target="_blank" class="header_btn download_btn">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_579_133)">
+                      <path
+                        d="M14.992 11.4864C14.8245 11.3183 14.5525 11.3177 14.3843 11.4852L10.4297 15.4237V0.429688C10.4297 0.192383 10.2373 0 10 0C9.7627 0 9.57031 0.192383 9.57031 0.429688V15.4237L5.6157 11.4852C5.44758 11.3177 5.17547 11.3183 5.00805 11.4864C4.84059 11.6545 4.84113 11.9266 5.0093 12.0941L9.69609 16.7618C9.85637 16.9279 10.1436 16.9279 10.3039 16.7618L14.9907 12.0941C15.1589 11.9266 15.1594 11.6545 14.992 11.4864Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M18.4695 20H1.21802C0.890511 20 0.625 19.8117 0.625 19.5795V17.2955C0.625 17.0633 0.890511 16.875 1.21802 16.875C1.54553 16.875 1.81104 17.0633 1.81104 17.2955V19.1591H17.8765V17.2955C17.8765 17.0633 18.142 16.875 18.4695 16.875C18.797 16.875 19.0625 17.0633 19.0625 17.2955V19.5795C19.0625 19.8117 18.797 20 18.4695 20Z"
+                        fill="currentColor"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_579_133">
+                        <rect width="20" height="20" fill="currentColor" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  Download Brochure</a
+                >
+                <div class="footer_bottom">
+                  <a href="#" class="footer_text-link">Terms of use</a>
+                  <div
+                    class="html-embed-2 w-embed d-flex justify-content-center align-items-center"
+                  >
+                    <svg
+                      width="4"
+                      height="4"
+                      viewBox="0 0 4 4"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="2" cy="2" r="2" fill="#0156FF"></circle>
+                    </svg>
+                  </div>
+                  <a href="#" class="footer_text-link">Privacy policy</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="float-right d-none d-md-block d-lg-block header_btn-group"
+          >
+            <div
+              class="main-menuright d-md-flex align-items-center justify-content-flex-start"
+            >
+              <a
+                href="/student-login"
+                
+                class="header_btn download_btn is_login header-red-button"
+                type="button"
+                
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.03281 9.42188C8.03281 11.6095 9.8124 13.3891 12 13.3891C14.1876 13.3891 15.9672 11.6095 15.9672 9.42188C15.9672 7.23428 14.1876 5.45469 12 5.45469C9.8124 5.45469 8.03281 7.23428 8.03281 9.42188ZM14.9078 9.42188C14.9078 11.0252 13.6033 12.3297 12 12.3297C10.3967 12.3297 9.09219 11.0252 9.09219 9.42188C9.09219 7.8186 10.3967 6.51406 12 6.51406C13.6033 6.51406 14.9078 7.8186 14.9078 9.42188Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="0.2"
+                  />
+                  <path
+                    d="M19.9062 5.48281C20.1988 5.48281 20.4359 5.24566 20.4359 4.95312C20.4359 4.66059 20.1988 4.42344 19.9062 4.42344C19.6137 4.42344 19.3766 4.66059 19.3766 4.95312C19.3766 5.24566 19.6137 5.48281 19.9062 5.48281Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="0.2"
+                  />
+                  <path
+                    d="M20.7667 6.06473L20.7666 6.06476C20.5166 6.21662 20.4369 6.54238 20.5888 6.79245C21.5385 8.3566 22.0406 10.1573 22.0406 12C22.0406 14.8543 20.8644 17.5051 18.7858 19.4034C18.0508 16.3147 15.2772 14.0484 12 14.0484C8.72282 14.0484 5.94891 16.3149 5.2146 19.4038C3.13574 17.5052 1.95938 14.8543 1.95938 12C1.95938 6.46366 6.46366 1.95938 12 1.95938C14.2547 1.95938 16.3834 2.68744 18.1569 4.06513C18.3879 4.2446 18.7207 4.20274 18.9002 3.97175C19.0796 3.74075 19.0378 3.40795 18.8068 3.22849C16.8459 1.70523 14.4917 0.9 12 0.9C9.03291 0.9 6.24448 2.05417 4.14924 4.14954C2.05403 6.24483 0.9 9.03317 0.9 12C0.9 18.1322 5.8629 23.1 12 23.1C18.1529 23.1 23.1 18.1167 23.1 12C23.1 9.96362 22.5448 7.97274 21.4943 6.24262L21.4088 6.29452L21.4943 6.24262C21.3425 5.99259 21.0168 5.91301 20.7667 6.06473ZM12 15.1078C14.9676 15.1078 17.4335 17.2604 17.8533 20.1616C16.1426 21.3919 14.1257 22.0406 12 22.0406C9.87449 22.0406 7.85789 21.3918 6.14711 20.1614C6.5664 17.2603 9.03209 15.1078 12 15.1078Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="0.2"
+                  />
+                </svg>
+
+                Student Login</a
+              >
+              <a href="#" target="_blank" class="header_btn download_btn">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_579_133)">
+                    <path
+                      d="M14.992 11.4864C14.8245 11.3183 14.5525 11.3177 14.3843 11.4852L10.4297 15.4237V0.429688C10.4297 0.192383 10.2373 0 10 0C9.7627 0 9.57031 0.192383 9.57031 0.429688V15.4237L5.6157 11.4852C5.44758 11.3177 5.17547 11.3183 5.00805 11.4864C4.84059 11.6545 4.84113 11.9266 5.0093 12.0941L9.69609 16.7618C9.85637 16.9279 10.1436 16.9279 10.3039 16.7618L14.9907 12.0941C15.1589 11.9266 15.1594 11.6545 14.992 11.4864Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M18.4695 20H1.21802C0.890511 20 0.625 19.8117 0.625 19.5795V17.2955C0.625 17.0633 0.890511 16.875 1.21802 16.875C1.54553 16.875 1.81104 17.0633 1.81104 17.2955V19.1591H17.8765V17.2955C17.8765 17.0633 18.142 16.875 18.4695 16.875C18.797 16.875 19.0625 17.0633 19.0625 17.2955V19.5795C19.0625 19.8117 18.797 20 18.4695 20Z"
+                      fill="currentColor"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_579_133">
+                      <rect width="20" height="20" fill="currentColor" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Download Brochure</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>

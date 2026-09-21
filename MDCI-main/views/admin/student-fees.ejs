@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"
+    />
+    
+  </head>
+  <body>
+    <%- include('../partials/sidebar') %>
+
+    <div class="dashboard-main-wrapper">
+      <div
+        class="top-navbar flex-between gap-16"
+        style="background-color: white"
+      >
+        <div class="flex-align gap-16">
+          <button
+            type="button"
+            class="toggle-btn d-xl-none d-flex text-26 text-gray-500"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+          <h1>Student Fees Structure</h1>
+        </div>
+        <div class="flex-align gap-16">
+          <a
+            href="/admin/logout"
+            class="py-12 text-15 px-20 hover-bg-danger-50 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium text-15"
+          >
+            <span class="text-2xl text-danger-600 d-flex"
+              ><i class="ph ph-sign-out"></i
+            ></span>
+            <span class="text">Log Out</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h3>Fees for <%= student.name %></h3>
+        <% const locked = student.fees?.installments?.length >= 1; %>
+
+        <form action="/admin/student/<%= student._id %>/fees" method="POST">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Total Fees</label>
+              <input type="number" name="totalFees" id="totalFees"
+              class="form-control" value="<%= student.fees?.totalFees || '' %>"
+              <%= locked ? 'disabled' : '' %> />
+            </div>
+            <div class="form-group col-md-4">
+              <label>Discount (%)</label>
+              <input type="number" name="discountPercent" id="discountPercent"
+              class="form-control" value="<%= student.fees?.discountPercent ||
+              '' %>" <%= locked ? 'disabled' : '' %> />
+            </div>
+            <div class="form-group col-md-4">
+              <label>Discount Amount</label>
+              <input
+                type="number"
+                id="discountAmount"
+                class="form-control"
+                readonly
+                value="<%= student.fees?.discountAmount || '' %>"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Final Amount</label>
+              <input
+                type="number"
+                id="finalAmount"
+                class="form-control"
+                readonly
+                value="<%= student.fees?.finalAmount || '' %>"
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label>Amount Paid</label>
+              <input
+                type="number"
+                id="amountPaid"
+                class="form-control"
+                readonly
+                value="<%= student.fees?.amountPaid || '' %>"
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label>Dues</label>
+              <input
+                type="number"
+                id="dues"
+                class="form-control"
+                readonly
+                value="<%= student.fees?.dues || '' %>"
+              />
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Pay Amount</label>
+            <input
+              type="number"
+              name="payAmount"
+              id="payAmount"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Last Paid Date</label>
+            <input
+              type="date"
+              name="lastPaidDate"
+              class="form-control"
+              value="<%= student.fees?.lastPaidDate ? student.fees.lastPaidDate.toISOString().split('T')[0] : '' %>"
+            />
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Receipt No</label>
+            <input
+              type="text"
+              name="receiptNo"
+              class="form-control"
+              value="<%= student.fees?.receiptNo || '' %>"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Fees</button>
+          <a href="/admin/student/enroll" class="btn btn-secondary">Back</a>
+        </form>
+
+        <% if (student.fees?.installments?.length) { %>
+        <h4 class="mt-5">Installment History</h4>
+        <table id="installmentTable" class="display nowrap" style="width: 100%">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Receipt No</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% student.fees.installments.forEach((inst, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td>₹<%= inst.amount %></td>
+              <td><%= new Date(inst.date).toLocaleDateString() %></td>
+              <td><%= inst.receiptNo %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+        <script>
+          $(document).ready(function () {
+            $("#installmentTable").DataTable({
+              dom: "Bfrtip",
+              buttons: ["copy", "excel", "pdf", "print"],
+              scrollX: true,
+            });
+          });
+        </script>
+        <% } %>
+      </div>
+    </div>
+    <script>
+      function calculateFees() {
+        const total =
+          parseFloat(document.getElementById("totalFees")?.value) || 0;
+        const discountPercent =
+          parseFloat(document.getElementById("discountPercent")?.value) || 0;
+        const discountAmount = (total * discountPercent) / 100;
+        const finalAmount = total - discountAmount;
+
+        document.getElementById("discountAmount").value =
+          discountAmount.toFixed(2);
+        document.getElementById("finalAmount").value = finalAmount.toFixed(2);
+
+        // Also update dues after recalculating final amount
+        updateDues();
+      }
+
+      function updateDues() {
+        const final =
+          parseFloat(document.getElementById("finalAmount")?.value) || 0;
+        const paid =
+          parseFloat(document.getElementById("amountPaid")?.value) || 0;
+        const payNow =
+          parseFloat(document.getElementById("payAmount")?.value) || 0;
+        const totalPaid = paid + payNow;
+        const dues = final - totalPaid;
+        document.getElementById("dues").value = dues.toFixed(2);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Run once on page load
+        calculateFees();
+        updateDues();
+
+        // Attach change events
+        document
+          .getElementById("totalFees")
+          ?.addEventListener("input", calculateFees);
+        document
+          .getElementById("discountPercent")
+          ?.addEventListener("input", calculateFees);
+        document
+          .getElementById("payAmount")
+          ?.addEventListener("input", updateDues);
+      });
+    </script>
+  </body>
+</html>

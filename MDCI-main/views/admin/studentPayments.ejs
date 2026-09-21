@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Dashboard - Payments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 to-white min-h-screen">
+    <div class="flex flex-col md:flex-row min-h-screen">
+      <!-- Sidebar -->
+      <%- include("../partials/studentSidebar") %>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-4 sm:p-6 md:p-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
+          Welcome, <span class="text-blue-700"><%= student.name %></span> 💳
+        </h1>
+
+        <!-- Payment Summary -->
+        <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 mb-8">
+          <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
+            Payment Summary
+          </h2>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700"
+          >
+            <div class="bg-blue-100 p-4 rounded-lg">
+              <strong>Total Fees:</strong>
+              <p class="text-xl font-bold text-blue-700">
+                ₹<%= student.fees.totalFees %>
+              </p>
+            </div>
+            <div class="bg-green-100 p-4 rounded-lg">
+              <strong>Discount:</strong>
+              <p class="text-xl font-bold text-green-700">
+                ₹<%= student.fees.discountAmount %>
+              </p>
+            </div>
+            <div class="bg-yellow-100 p-4 rounded-lg">
+              <strong>Final Amount:</strong>
+              <p class="text-xl font-bold text-yellow-700">
+                ₹<%= student.fees.finalAmount %>
+              </p>
+            </div>
+            <div class="bg-teal-100 p-4 rounded-lg">
+              <strong>Paid:</strong>
+              <p class="text-xl font-bold text-teal-700">
+                ₹<%= student.fees.amountPaid %>
+              </p>
+            </div>
+            <div class="bg-red-100 p-4 rounded-lg">
+              <strong>Dues:</strong>
+              <p class="text-xl font-bold text-red-700">
+                ₹<%= student.fees.dues %>
+              </p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <strong>Last Payment Date:</strong>
+              <p class="text-md text-gray-700">
+                <%= student.fees.lastPaidDate ? new
+                Date(student.fees.lastPaidDate).toDateString() : 'N/A' %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Installments List -->
+        <div class="bg-white rounded-xl shadow p-6 sm:p-8">
+          <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">
+            Installment History
+          </h2>
+
+          <% if (student.fees.installments.length === 0) { %>
+          <p class="text-gray-500">No installment records found.</p>
+          <% } else { %>
+          <ul class="space-y-4">
+            <% student.fees.installments.forEach((installment, index) => { %>
+            <li
+              class="p-4 border rounded-lg bg-gray-50 flex flex-col sm:flex-row sm:justify-between gap-2 sm:items-center"
+            >
+              <div>
+                <p class="font-medium text-gray-800">
+                  ₹<%= installment.amount %> —
+                  <span class="text-gray-600">
+                    <%= new Date(installment.date).toDateString() %>
+                  </span>
+                </p>
+                <p class="text-sm text-gray-500">
+                  Receipt No:
+                  <span class="font-semibold"
+                    ><%= installment.receiptNo %></span
+                  >
+                </p>
+              </div>
+              <span
+                class="bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full w-fit"
+              >
+                Paid
+              </span>
+            </li>
+            <% }) %>
+          </ul>
+          <% } %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

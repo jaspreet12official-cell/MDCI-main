@@ -1,0 +1,166 @@
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Select Student</title>
+        <%- include("../partials/head") %>
+
+        <script>
+          let allRows = [];
+
+          function initStudentTable() {
+            allRows = Array.from(
+              document.querySelectorAll("#studentTable tbody tr")
+            );
+
+            allRows.forEach((row, i) => {
+              row.style.display = i < 20 ? "" : "none";
+            });
+          }
+
+          function searchStudents() {
+            const query = document
+              .getElementById("searchInput")
+              .value.toLowerCase();
+            let shown = 0;
+
+            allRows.forEach((row) => {
+              const match = row.innerText.toLowerCase().includes(query);
+              row.style.display = match && shown < 20 ? "" : "none";
+              if (match) shown++;
+            });
+          }
+
+          function toggleStudentSection() {
+            const section = document.getElementById("studentSection");
+            section.style.display =
+              section.style.display === "none" ? "block" : "none";
+            if (section.style.display === "block") initStudentTable();
+          }
+        </script>
+      </head>
+
+      <body class="p-4">
+        <%- include('../partials/sidebar') %>
+
+        <div class="dashboard-main-wrapper">
+          <div class="top-navbar flex-between gap-16" style="background-color:#fff">
+            <div class="flex-align gap-16">
+              <button type="button" class="toggle-btn d-xl-none d-flex text-26 text-gray-500">
+                <i class="ph ph-list"></i>
+              </button>
+              <h1>Student Certificate</h1>
+            </div>
+
+            <a href="/admin/logout" class="py-12 px-20 text-gray-300 hover-text-danger-600 rounded-8 flex-align gap-8 fw-medium">
+              <i class="ph ph-sign-out text-danger-600"></i> Logout
+            </a>
+          </div>
+
+          <!-- TOGGLE BUTTON -->
+          <div style="text-align:center;">
+            <button onclick="toggleStudentSection()" class="btn btn-primary mb-3" style="width:400px;">
+              Toggle Student Selection
+            </button>
+          </div>
+
+          <!-- ✅ CORRECT STUDENT TABLE -->
+          <div id="studentSection" style="display:none">
+            <input
+              type="text"
+              id="searchInput"
+              onkeyup="searchStudents()"
+              placeholder="Search student..."
+              class="form-control mb-3"
+            />
+
+            <table class="table table-bordered" id="studentTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Course</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% students.forEach(student => { %>
+                  <tr>
+                    <td><%= student.name || "N/A" %></td>
+                    <td><%= student.email || "N/A" %></td>
+                    <td><%= student.course?.name || "N/A" %></td>
+                    <td>
+                      <a href="/admin/marks/form/<%= student._id %>" class="btn btn-outline-primary btn-sm">
+                        Open Form
+                      </a>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+
+            <hr class="my-5" />
+          </div>
+
+          <!-- ✅ CERTIFICATE TABLE -->
+          <h3>Students with Certificates</h3>
+
+          <div class="table-responsive p-3">
+            <table class="table table-bordered table-hover shadow-sm rounded">
+              <thead class="table-primary text-center">
+                <tr>
+                  <th>Name</th>
+                  <th>Course</th>
+                  <th>Certificate No.</th>
+                  <th>Issue Date</th>
+                  <th>Certificate</th>
+                  <th>Marksheet</th>
+                </tr>
+              </thead>
+
+              <tbody class="text-center">
+                <% issuedStudents.forEach(entry => { %>
+                  <tr>
+                    <td><%= entry.student?.name || "N/A" %></td>
+                    <td><%= entry.student?.course?.name || "N/A" %></td>
+                    <td><%= entry.certificateNo || "N/A" %></td>
+                    <td>
+                      <%= entry.issueDate
+                        ? new Date(entry.issueDate).toLocaleDateString()
+                        : "N/A" %>
+                    </td>
+
+                    <td>
+                      <% if(entry.student) { %>
+                        <a href="/admin/marks/certificate/<%= entry._id %>" target="_blank" class="btn btn-success btn-sm">
+                          View
+                        </a>
+                      <% } else { %>
+                        <span class="text-danger">Invalid</span>
+                      <% } %>
+                    </td>
+
+                    <td>
+                      <% if(entry.student) { %>
+                        <a href="/admin/marks/marksheet/<%= entry._id %>" target="_blank" class="btn btn-info btn-sm">
+                          View
+                        </a>
+                      <% } else { %>
+                        <span class="text-danger">Invalid</span>
+                      <% } %>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+
+          <script>
+            window.addEventListener("DOMContentLoaded", () => {
+              const section = document.getElementById("studentSection");
+              if (section.style.display === "block") initStudentTable();
+            });
+          </script>
+        </div>
+      </body>
+    </html>
