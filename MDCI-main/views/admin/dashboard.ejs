@@ -172,6 +172,11 @@
         color: #111827;
         font-weight: 600;
       }
+      .dx-bar-pct {
+        color: #6d4aff;
+        font-weight: 500;
+        font-size: 13px;
+      }
       .dx-bar-track {
         height: 8px;
         background: #f0f1f6;
@@ -530,11 +535,11 @@
               <% } %>
             </div>
 
-            <% if (dxCats.length) { %> <% dxCats.forEach((c) => { %>
+            <% if (dxCats.length) { %> <% dxCats.forEach((c) => { var dxPct = dxCatTotal ? Math.round((Number(c.count || 0) / dxCatTotal) * 100) : 0; %>
             <div class="dx-bar-row">
               <div class="dx-bar-head">
                 <span><%= c.name %></span>
-                <b><%= c.count %></b>
+                <b><%= c.count %> <span class="dx-bar-pct">(<%= dxPct %>%)</span></b>
               </div>
               <div class="dx-bar-track">
                 <div
